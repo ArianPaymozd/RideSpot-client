@@ -1,0 +1,12 @@
+.error-boundary {
+    width: 250px;
+    padding: 5px;
+    margin: 3px;
+    border-radius: 8px;
+    background-color: rgba(255, 0, 0, 0.644);
+}
+
+h1 {
+    font-size: 20px;
+    color: white;
+}
