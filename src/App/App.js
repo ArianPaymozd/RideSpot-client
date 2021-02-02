@@ -1,68 +1,164 @@
 import React from 'react'
-import {Route, Link} from 'react-router-dom'
+import {Route, Link, Switch} from 'react-router-dom'
+import {dropdown} from 'reactstrap'
+import {faSnowboarding, faUserCircle} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import NoteListNav from '../NoteListNav/NoteListNav'
-import NotePageNav from '../NotePageNav/NotePageNav'
-import NoteListMain from '../NoteListMain/NoteListMain'
-import NotePageMain from '../NotePageMain/NotePageMain'
-import AddFolder from '../AddFolder/AddFolder'
-import AddNote from '../AddNote/AddNote'
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary'
 import ApiContext from '../ApiContext'
 import config from '../config'
 import './App.css'
-import ErrorBoundary from '../ErrorBoundary/ErrorBoundary'
+import MainPaige from '../MainPaige/MainPage'
+import LoginPage from '../LogInPage/LogInPage'
+import AddPost from '../AddPost/AddPost'
+import PostList from '../PostList/PostList'
+import PrivateRoute from '../Utils/PrivateRoute'
+import ProfilePage from '../ProfilePage/ProfilePage'
+import PublicOnlyRoute from '../Utils/PublicOnlyRoute'
+import TokenService from '../services/token-service'
+import AuthApiService from '../services/auth-service'
+import IdleService from '../services/idle-service'
+import AddPostPage from '../AddPost/AppPostPage'
 
 class App extends React.Component {
     state = {
-        notes: [],
-        folders: [],
+        posts: [],
+        userId: ''
     };
-
+    static defaultProps = {
+        location: {},
+        history: {
+        push: () => {},
+        },
+    }
     componentDidMount() {
-        Promise.all([
-            fetch(`${config.API_ENDPOINT}/notes`),
-            fetch(`${config.API_ENDPOINT}/folders`)
-        ])
-            .then(([notesRes, foldersRes]) => {
-                if (!notesRes.ok)
-                    return notesRes.json().then((e) => Promise.reject(e))
-                if (!foldersRes.ok)
-                    return foldersRes.json().then((e) => Promise.reject(e))
+        fetch(`${config.API_ENDPOINT}/posts`)
+        .then(res => res.json())
+        .then(json => {
+            this.setState({
+                posts: json
+            })
+        })
+        .catch(error => {
+            console.log(error)
+        })
+        IdleService.setIdleCallback(this.logoutFromIdle)
 
-                return Promise.all([
-                    notesRes.json(),
-                    foldersRes.json(),
-                ])
-            })
-            .then(([notes, folders]) => {
-                this.setState({ notes, folders })
-            })
-            .catch(error => {
-                console.error({error})
-            })
+        /* if a user is logged in */
+        if (TokenService.hasAuthToken()) {
+        /*
+            tell the idle service to register event listeners
+            the event listeners are fired when a user does something, e.g. move their mouse
+            if the user doesn't trigger one of these event listeners,
+            the idleCallback (logout) will be invoked
+        */
+        IdleService.regiserIdleTimerResets()
+
+        /*
+            Tell the token service to read the JWT, looking at the exp value
+            and queue a timeout just before the token expires
+        */
+        TokenService.queueCallbackBeforeExpiry(() => {
+            /* the timoue will call this callback just before the token expires */
+            AuthApiService.postRefreshToken()
+        })
+        }
     }
 
-    handleAddFolder = folder => {
+    componentWillUnmount() {
+        /*
+          when the app unmounts,
+          stop the event listeners that auto logout (clear the token from storage)
+        */
+        IdleService.unRegisterIdleResets()
+        /*
+          and remove the refresh endpoint request
+        */
+        TokenService.clearCallbackBeforeExpiry()
+      }
+    
+    logoutFromIdle = () => {
+        /* remove the token from localStorage */
+        TokenService.clearAuthToken()
+        /* remove any queued calls to the refresh endpoint */
+        TokenService.clearCallbackBeforeExpiry()
+        /* remove the timeouts that auto logout when idle */
+        IdleService.unRegisterIdleResets()
+        /*
+            react won't know the token has been removed from local storage,
+            so we need to tell React to rerender
+        */
+        this.forceUpdate()
+    }
+
+    handleAddPost = post => {
         this.setState({
-            folders: [
-                ...this.state.folders,
-                folder
+            posts: [...this.state.posts, post]
+        })
+    }
+
+    handleAddUser = user => {
+        this.setState({
+            users: [
+                ...this.state.user,
+                user
             ]
         })
     }
 
-    handleAddNote = note => {
+    handleUpdateNote = updatedNote => {
+        const newNotes = this.context.notes.map(note =>
+          (note.note_id === updatedNote.note_id)
+            ? updatedNote
+            : note
+        )
         this.setState({
-            notes: [
-                ...this.state.notes,
-                note
-            ]
+          notes: newNotes
         })
     }
 
     handleDeleteNote = noteId => {
+        const newNotes = this.state.notes.filter(note => note.note_id !== noteId)
         this.setState({
-            notes: this.state.notes.filter(note => note.id !== noteId)
+            notes: newNotes
+        })
+    }
+
+    handleDeleteFolder = folderId => {
+        const newFolders = this.state.folders.filter(folder => folder.folder_id !== folderId)
+        this.setState({
+            folders: newFolders
+        })
+    }
+
+    handleEditNote = editedNote => {
+        const editedNotes = this.state.notes.map(note => {
+            return (note.note_id === editedNote.note_id) ? editedNote : note
+        })
+        
+        this.setState({
+            notes: editedNotes
+        })
+    }
+
+    handleEditFolder = editedFolder => {
+        const editedFolders = this.state.folders.map(folder => {
+            return folder.folder_id === editedFolder.folder_id ? editedFolder : folder
+        })
+        this.setState({
+            folders: editedFolders
+        })
+    }
+
+    handleLoginSuccess = (userId) => {
+        this.setState({
+            userId: userId
+        })
+    }
+
+    handleLogOut = () => {
+        TokenService.clearAuthToken()
+        this.setState({
+            userId: ''
         })
     }
 
@@ -75,96 +171,76 @@ class App extends React.Component {
                             exact
                             key={path}
                             path={path}
-                            component={NoteListNav}
+                            component={''}
                         /> 
                     </ErrorBoundary>
                 )}
-                <ErrorBoundary>
-                    <Route
-                        path='/note/:noteId'
-                        component={NotePageNav}
-                    />
-                </ErrorBoundary>
-                
-                <ErrorBoundary>
-                    <Route
-                        path='/add-folder'
-                        component={NotePageNav}
-                    />
-                </ErrorBoundary>
-                
-
-                <ErrorBoundary>
-                    <Route
-                        path='/add-note'
-                        component={NotePageNav}
-                    />
-                </ErrorBoundary>
             </>
         )
     }
 
-    renderMainRoutes() {
-        return (
-            <>
-                {['/', '/folder/:folderId'].map(path =>
-                    <ErrorBoundary key={path}>
-                       <Route
-                            exact
-                            key={path}
-                            path={path}
-                            component={NoteListMain}
-                        /> 
-                    </ErrorBoundary>
-                )}
-                <ErrorBoundary>
-                    <Route
-                        path='/note/:noteId'
-                        component={NotePageMain}
-                    />
-                </ErrorBoundary>
-                
-                <ErrorBoundary>
-                   <Route
-                        path='/add-folder'
-                        component={AddFolder}
-                    /> 
-                </ErrorBoundary>
-                
-                <ErrorBoundary>
-                    <Route
-                        path='/add-note'
-                        component={AddNote}
-                    />
-                </ErrorBoundary>
-            </>
-        )
-    }
-
+    
     render() {
         const value = {
-            folders: this.state.folders,
-            notes: this.state.notes,
-            addFolder: this.handleAddFolder,
-            addNote: this.handleAddNote,
-            deleteNote: this.handleDeleteNote,
+            posts: this.state.posts.reverse(),
+            userId: this.state.userId,
+            handleLoginSuccess: this.handleLoginSuccess,
+            addPost: this.handleAddPost,
         }
+        const logOut = TokenService.hasAuthToken() ? <button className="log-out" onClick={this.handleLogOut}>Log-out</button> : ''
+        const profilePath = TokenService.hasAuthToken() ? `/${window.localStorage.getItem('user_id')}` : '/login'
+        const upload = TokenService.hasAuthToken() ? <footer className='App_footer'><Link to='/post'>upload</Link></footer> : ''
+        
+        console.log(this.state.posts)
         return (
             <ApiContext.Provider value={value}>
                 <div className='App'>
-                    <nav className='App_nav'>
-                        {this.renderNavRoutes()}
-                    </nav>
                     <header className='App_header'>
                         <h1>
-                            <Link to='/'>Noteful</Link>
+                            <Link to='/'>RideSpot</Link>
                             {' '}
-                            <FontAwesomeIcon icon='check-double' />
+                            <FontAwesomeIcon className="profile-icon" icon={faSnowboarding} size='xs'/>
                         </h1>
+                        
+
+                        <div class="dropdown">
+                            <button class="dropbtn"><FontAwesomeIcon className='profile-icon' icon={faUserCircle} size='3x' /></button>
+                            <div class="dropdown-content">
+                                <Link to={profilePath}>
+                                    <FontAwesomeIcon className='profile-icon' icon={faUserCircle} size='3x' />
+                                </Link>
+                                <hr />
+                                {logOut}
+                            </div>
+                        </div>
                     </header>
                     <main className='App_main'>
-                        {this.renderMainRoutes()}
+                        <Switch>
+                            <Route
+                            exact
+                            path={'/'}
+                            component={PostList}
+                            />
+                            <PublicOnlyRoute
+                            path={'/login'}
+                            component={LoginPage}
+                            />
+                            <PublicOnlyRoute
+                            path={'/register'}
+                            component={MainPaige}
+                            />
+                            <PrivateRoute
+                            path={'/post'}
+                            component={AddPostPage}
+                            />
+                            <PrivateRoute
+                            path={'/:userId'}
+                            component={ProfilePage}
+                            />
+                            
+                        </Switch>
                     </main>
+                    {upload}
                 </div>
             </ApiContext.Provider>
         )

@@ -1,11 +1,10 @@
 import React from 'react'
 
 export default React.createContext({
-    folders: [],
-    notes: [],
-    addFolder: () => {},
-    addNote: () => {},
-    deleteNote: () => {},
+    userId: null,
+    posts: [],
+    handleLoginSuccess: (userId) => {},
+    addPost: (post) => {},
     error: false,
     setError: () => {}
 })

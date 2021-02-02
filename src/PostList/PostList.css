@@ -1,0 +1,44 @@
+.form-section {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+.post-header {
+    background-color: black;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    text-align: center;
+    height: 4.5vh;
+}
+
+select {
+    width: 19vw;
+    height: 3vh;
+    font-size: 1.8vw;
+}
+
+input {
+    width: 19vw;
+    height: 3vh;
+    font-size: 1.8vw;
+}
+
+button.info-button {
+    background-color: rgba(2, 0, 0, 0);
+    color: rgba(255, 255, 255, 0.521);
+    border-style: none;
+}
+
+.search-button {
+    margin-left: 5px;
+    width: 20vw;
+    height: 3vh;
+    font-size: 1.8vw;
+    border-style: none;
+    border-radius: 5px;
+}
+
+.post-item {
+    padding-bottom: 10px;
+}
