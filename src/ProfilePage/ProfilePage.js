@@ -73,7 +73,7 @@ export default class ProfilePage extends React.Component {
             return (
                 <li className='post-item' key={idx}>
                     <header className="post-header" >{title}</header>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Globe_Skateboard.jpg/1200px-Globe_Skateboard.jpg" alt={post.title} />
+                    <img src={post.img} alt={post.title} />
                     {
                         this.state.info.includes(post.post_id)
                         ? <div>

@@ -3,9 +3,10 @@ html {
 }
 
 body {
-    background-color: rgba(2, 0, 0, 0.918);
+    background-color: rgba(2, 0, 0, 0.973);
     color:white;
     margin-top: 7vh;
+    margin-bottom: 5.5vh;
     width: auto;
 }
 
@@ -23,7 +24,7 @@ svg.svg-inline--fa {
     padding-top: 5px;
     width: 100%;
     background-color: black;
-    position: fixed;
+    position: fixed;  
     display: flex;
     justify-content: space-between;
     height: 7vh;
@@ -34,7 +35,7 @@ svg.svg-inline--fa {
     background-color: black;
     position: fixed;
     bottom: 0;
-    height: 8vw;
+    height: 5.5vh;
     text-align: center;
 }
 

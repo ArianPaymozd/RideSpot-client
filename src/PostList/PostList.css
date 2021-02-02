@@ -1,4 +1,4 @@
-.form-section {
+.overview-section {
     display: flex;
     padding-top: 10px;
     padding-bottom: 15px;
@@ -41,4 +41,5 @@ button.info-button {
 
 .post-item {
     padding-bottom: 10px;
+    background-color: black;
 }

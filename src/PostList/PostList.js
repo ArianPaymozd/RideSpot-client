@@ -45,7 +45,7 @@ export default class PostList extends React.Component {
             return (
                 <li className='post-item' key={idx}>
                     <header className="post-header" >{title}</header>
-                    <img src="https://i.imgur.com/2XYSDm6.png" alt={post.title} />
+                    <img src={post.img} alt={post.title} />
                     {
                         this.state.info.includes(post.post_id)
                         ? <div>
@@ -66,7 +66,7 @@ export default class PostList extends React.Component {
             return (
                 <li className='post-item' key={idx}>
                     <header className="post-header" >{title}</header>
-                    <img src="https://i.imgur.com/2XYSDm6.png" alt={post.title} />
+                    <img src={post.img} alt={post.title} />
                     {
                         this.state.info.includes(post.post_id)
                         ? <div>

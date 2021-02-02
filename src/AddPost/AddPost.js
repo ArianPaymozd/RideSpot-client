@@ -29,7 +29,7 @@ export default class AddPost extends React.Component {
               title: e.target['spot-title'].value,
               sport: e.target['sport-select'].value,
               spot_description: e.target['spot-description'].value,
-              spot_address: `${e.target['spot-address'].value} ${e.target['spot-city'].value}, ${e.target['spot-state'].value} ${e.target['spot-zipcode'].value}`,
+              spot_address: `${e.target['spot-address'].value}, ${e.target['spot-city'].value}, ${e.target['spot-state'].value} ${e.target['spot-zipcode'].value}`,
               difficulty: this.state.difficulty,
               security_level: e.target['security-level'].value,
               img: e.target['spot-picture'].value,
