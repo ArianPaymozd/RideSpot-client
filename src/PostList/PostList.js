@@ -1,6 +1,5 @@
 import React from 'react'
 import ApiContext from '../ApiContext'
-import { Button, NiceDate } from '../Utils/Utils'
 import Filters from './Filters'
 import './PostList.css'
 

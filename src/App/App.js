@@ -1,6 +1,5 @@
 import React from 'react'
 import {Route, Link, Switch} from 'react-router-dom'
-import {dropdown} from 'reactstrap'
 import {faSnowboarding, faUserCircle} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary'
@@ -9,7 +8,6 @@ import config from '../config'
 import './App.css'
 import MainPaige from '../MainPaige/MainPage'
 import LoginPage from '../LogInPage/LogInPage'
-import AddPost from '../AddPost/AddPost'
 import PostList from '../PostList/PostList'
 import PrivateRoute from '../Utils/PrivateRoute'
 import ProfilePage from '../ProfilePage/ProfilePage'
@@ -187,7 +185,7 @@ class App extends React.Component {
             handleLoginSuccess: this.handleLoginSuccess,
             addPost: this.handleAddPost,
         }
-        const logOut = TokenService.hasAuthToken() ? <button className="log-out" onClick={this.handleLogOut}>Log-out</button> : ''
+        const logOut = TokenService.hasAuthToken() ? <button className="log-out" onClick={this.handleLogOut}>log-out</button> : ''
         const profilePath = TokenService.hasAuthToken() ? `/${window.localStorage.getItem('user_id')}` : '/login'
         const upload = TokenService.hasAuthToken() ? <footer className='App_footer'><Link to='/post'>upload</Link></footer> : ''
         
@@ -197,7 +195,7 @@ class App extends React.Component {
                 <div className='App'>
                     <header className='App_header'>
                         <h1>
-                            <Link to='/'>RideSpot</Link>
+                            <Link className="list-link" to='/'>RideSpot</Link>
                             {' '}
                             <FontAwesomeIcon className="profile-icon" icon={faSnowboarding} size='xs'/>
                         </h1>
@@ -207,7 +205,7 @@ class App extends React.Component {
                             <button class="dropbtn"><FontAwesomeIcon className='profile-icon' icon={faUserCircle} size='3x' /></button>
                             <div class="dropdown-content">
                                 <Link to={profilePath}>
-                                    <FontAwesomeIcon className='profile-icon' icon={faUserCircle} size='3x' />
+                                    profile
                                 </Link>
                                 <hr />
                                 {logOut}

@@ -93,7 +93,7 @@ hr {
 }
 
 .log-out {
-    padding: 5px 0px 7px;
+    padding: 5px 8px 7px;
     background-color: white;
     border-style: none;
 }
@@ -101,9 +101,10 @@ hr {
 a {
     color:white;
     text-decoration: none;
+    text-align: left;
 }
-a:hover {
-    color:white;
+.list-link:hover {
+    color: white;
     text-decoration: none;
 }
 
