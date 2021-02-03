@@ -1,0 +1,97 @@
+.post-section {
+    display: flex;
+    justify-content: center;
+    height: 60vh;
+    width: 85vw;
+    margin-left: 7.5vw;
+    margin-top: 15vh;
+    border: solid rgba(27, 27, 27, 0.829);
+    border-radius: 8px;
+    font-size: 1.5vh;
+}
+
+.post-form {
+    height: 38vh;
+    margin-top: 7vh;
+}
+
+input {
+    border: none;
+    color: white;
+    border-bottom: solid 2px rgba(27, 27, 27, 0.829);
+    background-color: rgba(2, 0, 0, 0);
+    font-size: 1.5vh;
+    width: 20vw;
+    height: 4vh;
+    margin: 2px;
+}
+
+textarea {
+    border: none;
+    color: white;
+    border-bottom: solid 2px rgba(27, 27, 27, 0.829);
+    background-color: rgba(2, 0, 0, 0);
+    font-size: 1.5vh;
+    width: 41vw;
+    height: 4vh;
+    margin: 2px;
+}
+
+.main-info {
+    display: flex;
+
+}
+
+.post-img {
+    height: 18vh;
+    width: 18vh;
+    border-radius: 8px;
+}
+
+.img {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    border: none;
+}
+
+.no-img {
+    margin-top: 5.5vh;
+}
+
+.select {
+    display: flex;
+    justify-content: center;
+}
+
+.form-select {
+    margin: 3px;
+}
+
+select {
+    color: rgb(153, 149, 149);
+    border: none;
+    border-bottom: solid 2px rgba(27, 27, 27, 0.829);
+    background-color: rgba(27, 27, 27, 0.829);
+    font-size: 1.5vh;
+    width: 20vw;
+    height: 4vh;
+    padding-left: 3px;
+}
+
+option {
+    color: black;
+}
+
+.button-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+}
+
+.post-button {
+    background-color: rgba(2, 0, 0, 0);
+    border: solid 1px white;
+    border-radius: 8px;
+    color: white;
+}

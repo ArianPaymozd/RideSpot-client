@@ -2,7 +2,6 @@ import React from 'react'
 import {Route, Link, Switch} from 'react-router-dom'
 import {faSnowboarding, faUserCircle} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import ErrorBoundary from '../ErrorBoundary/ErrorBoundary'
 import ApiContext from '../ApiContext'
 import config from '../config'
 import './App.css'
@@ -103,49 +102,49 @@ class App extends React.Component {
         })
     }
 
-    handleUpdateNote = updatedNote => {
-        const newNotes = this.context.notes.map(note =>
-          (note.note_id === updatedNote.note_id)
-            ? updatedNote
-            : note
-        )
-        this.setState({
-          notes: newNotes
-        })
-    }
+    // handleUpdateNote = updatedNote => {
+    //     const newNotes = this.context.notes.map(note =>
+    //       (note.note_id === updatedNote.note_id)
+    //         ? updatedNote
+    //         : note
+    //     )
+    //     this.setState({
+    //       notes: newNotes
+    //     })
+    // }
 
-    handleDeleteNote = noteId => {
-        const newNotes = this.state.notes.filter(note => note.note_id !== noteId)
-        this.setState({
-            notes: newNotes
-        })
-    }
+    // handleDeleteNote = noteId => {
+    //     const newNotes = this.state.notes.filter(note => note.note_id !== noteId)
+    //     this.setState({
+    //         notes: newNotes
+    //     })
+    // }
 
-    handleDeleteFolder = folderId => {
-        const newFolders = this.state.folders.filter(folder => folder.folder_id !== folderId)
-        this.setState({
-            folders: newFolders
-        })
-    }
+    // handleDeleteFolder = folderId => {
+    //     const newFolders = this.state.folders.filter(folder => folder.folder_id !== folderId)
+    //     this.setState({
+    //         folders: newFolders
+    //     })
+    // }
 
-    handleEditNote = editedNote => {
-        const editedNotes = this.state.notes.map(note => {
-            return (note.note_id === editedNote.note_id) ? editedNote : note
-        })
+    // handleEditNote = editedNote => {
+    //     const editedNotes = this.state.notes.map(note => {
+    //         return (note.note_id === editedNote.note_id) ? editedNote : note
+    //     })
         
-        this.setState({
-            notes: editedNotes
-        })
-    }
+    //     this.setState({
+    //         notes: editedNotes
+    //     })
+    // }
 
-    handleEditFolder = editedFolder => {
-        const editedFolders = this.state.folders.map(folder => {
-            return folder.folder_id === editedFolder.folder_id ? editedFolder : folder
-        })
-        this.setState({
-            folders: editedFolders
-        })
-    }
+    // handleEditFolder = editedFolder => {
+    //     const editedFolders = this.state.folders.map(folder => {
+    //         return folder.folder_id === editedFolder.folder_id ? editedFolder : folder
+    //     })
+    //     this.setState({
+    //         folders: editedFolders
+    //     })
+    // }
 
     handleLoginSuccess = (userId) => {
         this.setState({
@@ -160,23 +159,6 @@ class App extends React.Component {
         })
     }
 
-    renderNavRoutes() {
-        return (
-            <>
-                {['/', '/folder/:folderId'].map(path =>
-                    <ErrorBoundary key={path}>
-                        <Route
-                            exact
-                            key={path}
-                            path={path}
-                            component={''}
-                        /> 
-                    </ErrorBoundary>
-                )}
-            </>
-        )
-    }
-
     
     render() {
         const value = {
@@ -189,7 +171,6 @@ class App extends React.Component {
         const profilePath = TokenService.hasAuthToken() ? `/${window.localStorage.getItem('user_id')}` : '/login'
         const upload = TokenService.hasAuthToken() ? <footer className='App_footer'><Link to='/post'>upload</Link></footer> : ''
         
-        console.log(this.state.posts)
         return (
             <ApiContext.Provider value={value}>
                 <div className='App'>
@@ -201,9 +182,9 @@ class App extends React.Component {
                         </h1>
                         
 
-                        <div class="dropdown">
-                            <button class="dropbtn"><FontAwesomeIcon className='profile-icon' icon={faUserCircle} size='3x' /></button>
-                            <div class="dropdown-content">
+                        <div className="dropdown">
+                            <button className="dropbtn"><FontAwesomeIcon className='profile-icon' icon={faUserCircle} size='3x' /></button>
+                            <div className="dropdown-content">
                                 <Link to={profilePath}>
                                     profile
                                 </Link>

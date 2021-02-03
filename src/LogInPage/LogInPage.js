@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ApiContext from '../ApiContext'
 import LoginForm from '../LogInForm/LogIn'
 import { Section } from '../Utils/Utils'
+import './Login.css'
 
 export default class LoginPage extends Component {
   static defaultProps = {

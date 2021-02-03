@@ -40,19 +40,6 @@ export default class ProfilePage extends React.Component {
             })
         })
     }
-    
-    // handleFilter = (e) => {
-    //     e.preventDefault()
-    //     const originalPosts = this.context.posts
-    //     const location = Filters.filterLocation(originalPosts, e.target['city'].value)
-    //     const sport = Filters.filterSport(location, e.target['sport-select'].value)
-    //     const difficulty = Filters.filterDifficulty(sport, e.target['difficulty-select'].value)
-    //     const security = Filters.filterDifficulty(difficulty, e.target['security-level'].value)
-    //     this.setState({
-    //         posts: security,
-    //         notFound: security.length > 0 ? false : true
-    //     })
-    // }
 
     handleInfo = (postId) => {
         if (this.state.info.includes(postId)) {

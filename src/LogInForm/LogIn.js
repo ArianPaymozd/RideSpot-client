@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import ApiContext from '../ApiContext'
 import AuthApiService from '../services/auth-service'
-import { Button, Input } from '../Utils/Utils'
+import { Button } from '../Utils/Utils'
 
 export default class LoginForm extends Component {
   state = { error: null }
@@ -38,38 +38,47 @@ export default class LoginForm extends Component {
         className='LoginForm'
         onSubmit={this.handleSubmitJwtAuth}
       >
+        <div className="login">
         <div role='alert'>
           {error && <p className='red'>{error}</p>}
         </div>
         <div className='user_name'>
           <label htmlFor='LoginForm__user_name'>
-            User name
           </label>
-          <Input
+          <br />
+          <input
             required
+            className='user_name'
             name='user_name'
-            id='LoginForm__user_name'>
-          </Input>
+            id='LoginForm__user_name'
+            placeholder="User name" />
         </div>
         <div className='password'>
           <label htmlFor='LoginForm__password'>
-            Password
           </label>
-          <Input
+          <br />
+          <input
             required
+            className='password'
             name='password'
             type='password'
-            id='LoginForm__password'>
-          </Input>
+            id='LoginForm__password'
+            placeholder="Password" />
         </div>
-        <Button type='submit'>
-          Login
-        </Button>
-        <Link to='/register'>
-        <Button>
+        <div className="login-button">
+          <button type='submit' className="login-buttons">
+            Login
+          </button>
+        </div>
+        </div>
+        <div className="register">
+          <div className="register-message"><h4 >Don't have an account? Register now!</h4></div>
+        <Link className="register-button" to='/register'>
+        <button className="login-buttons">
           Register
-        </Button>
+        </button>
         </Link>
+        </div>
       </form>
     )
   }

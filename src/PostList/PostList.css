@@ -12,7 +12,7 @@
     height: 4.5vh;
 }
 
-select {
+.filter {
     -webkit-appearance: none; 
     -moz-appearance: none;
     appearance: none;
@@ -22,18 +22,26 @@ select {
     border-radius: 0px;
     background: url(http://dropdown/arrow/url/) no-repeat;
     background-position: right center;
-    background-color: white;
-    color: #000000;
-    border: 1px solid #000000;
-    width: 19vw;
-    height: 3vh;
-    font-size: 1.8vw;
+    color: rgb(153, 149, 149);
+    border: none;
+    border-bottom: solid 2px rgba(27, 27, 27, 0.829);
+    border-left: solid 2px black;
+    background-color: rgba(27, 27, 27, 0.829);
+    font-size: 1.5vh;
+    width: 20vw;
+    height: 4vh;
+    padding-left: 3px;
 }
 
-input {
+.city-search {
+    border: none;
+    color: white;
+    border-bottom: solid 2px rgba(27, 27, 27, 0.829);
+    background-color: rgba(2, 0, 0, 0);
+    font-size: 1.5vh;
     width: 19vw;
-    height: 3vh;
-    font-size: 1.8vw;
+    height: 3.8vh;
+    margin: 2px;
 }
 
 button.info-button {
@@ -46,10 +54,12 @@ button.info-button {
     background-color: white;
     margin-left: 5px;
     width: 20vw;
-    height: 3vh;
+    height: 3.8vh;
     font-size: 1.8vw;
-    border-style: none;
-    border-radius: 5px;
+    background-color: rgba(2, 0, 0, 0);
+    border: solid 1px white;
+    border-radius: 8px;
+    color: white;
 }
 
 .post-item {
