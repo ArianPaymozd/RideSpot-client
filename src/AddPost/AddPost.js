@@ -10,6 +10,10 @@ export default class AddPost extends React.Component {
         postSuccess: () => {}
     }
 
+    state = {
+        difficulty: ''
+    }
+
     static contextType = ApiContext
 
     handlePost = (e) => {
