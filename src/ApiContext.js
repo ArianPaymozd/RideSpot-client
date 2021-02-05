@@ -5,6 +5,7 @@ export default React.createContext({
     posts: [],
     handleLoginSuccess: (userId) => {},
     addPost: (post) => {},
+    deletePost: (postId) => {},
     error: false,
     setError: () => {}
 })

@@ -1,3 +1,13 @@
+.PostList_main {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: fit-content(8%) 1fr;
+    grid-template-areas: 
+        'filter filter filter city search'
+        'main main main main main';
+}
+
 .overview-section {
     display: flex;
     padding-top: 10px;
@@ -12,6 +22,20 @@
     height: 4.5vh;
 }
 
+.filter-grid {
+    grid-area: filter;
+    display: flex;
+    margin-left: .5vw;
+}
+
+.city {
+    grid-area: city;
+}
+
+.search {
+    grid-area: search;
+}
+
 .filter {
     -webkit-appearance: none; 
     -moz-appearance: none;
@@ -20,16 +44,14 @@
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 0px;
-    background: url(http://dropdown/arrow/url/) no-repeat;
-    background-position: right center;
+    /* background: url() no-repeat;
+    background-position: right center; */
     color: rgb(153, 149, 149);
     border: none;
-    border-bottom: solid 2px rgba(27, 27, 27, 0.829);
+    height: 100%;
     border-left: solid 2px black;
     background-color: rgba(27, 27, 27, 0.829);
     font-size: 1.5vh;
-    width: 20vw;
-    height: 4vh;
     padding-left: 3px;
 }
 
@@ -40,8 +62,6 @@
     background-color: rgba(2, 0, 0, 0);
     font-size: 1.5vh;
     width: 19vw;
-    height: 3.8vh;
-    margin: 2px;
 }
 
 button.info-button {
@@ -53,13 +73,17 @@ button.info-button {
 .search-button {
     background-color: white;
     margin-left: 5px;
-    width: 20vw;
-    height: 3.8vh;
-    font-size: 1.8vw;
+    width: 17vw;
+    height: 100%;
+    font-size: 1.2vh;
     background-color: rgba(2, 0, 0, 0);
     border: solid 1px white;
     border-radius: 8px;
     color: white;
+}
+
+.posts {
+    grid-area: main;
 }
 
 .post-item {

@@ -84,45 +84,47 @@ export default class PostList extends React.Component {
         })
         const list = () => {
             if (!this.state.notFound) {
-                return (<ul>{filteredPostList.length > 0 ? filteredPostList : postList}</ul>)
+                return (<ul className="posts" >{filteredPostList.length > 0 ? filteredPostList : postList}</ul>)
             } else {
                 return <h4>No posts found, please lower your standards bud.</h4>
             }
         }
         return (
-            <>
-            <section className='filter-form'>
-            <form className="form-section overview-section" onSubmit={this.handleFilter}>
-                <select className="filter" name="sport-select">
-                <option name="sport-none" value={null}>Sport</option>
-                <option name="sport-skateboard" value="skateboard">Skateboard</option>
-                <option name="sport-bike" value="bike">Bike</option>
-                <option name="sport-scooter" value="scooter">Scooter</option>
-                <option name="sport-rollerblades" value="rollerblades">Rollderblades</option>
-                </select>
-                <select className="filter" name="difficulty-select">
-                <option name="difficulty-none" value={null}>Difficulty</option>
-                <option name="difficulty-beginer" value="beginer">beginner</option>
-                <option name="difficulty-intermediate" value="intermediate">intermediate</option>
-                <option name="difficulty-hard" value="expert">expert</option>
-                <option name="difficulty-expert" value="bring a helmet">Bring a helmet</option>
-                <option name="difficulty-pro" value="the helmet won't help">The helmet won't help</option>
-                </select>
-                <select className="filter" name="security-level">
-                <option name="security-none" value={null}>Security</option>
-                <option name="security-none" value="none">none</option>
-                <option name="security-low" value="low">low</option>
-                <option name="security-medium" value="medium">medium</option>
-                <option name="security-high" value="high">high</option>
-                </select>
-                <input type="text" className="city-search" name="city" id="city-search" placeholder="Search City"/>
-                <button type='submit' className='search-button' >SEARCH</button>
-            </form>
-            </section>
+            <main className="PostList_main">
+                <section className='filter-form'>
+                <form className="form-section overview-section" onSubmit={this.handleFilter}>
+                    <div className="filter-grid">
+                    <select className="filter" name="sport-select">
+                    <option name="sport-none" value={null}>Sport</option>
+                    <option name="sport-skateboard" value="skateboard">Skateboard</option>
+                    <option name="sport-bike" value="bike">Bike</option>
+                    <option name="sport-scooter" value="scooter">Scooter</option>
+                    <option name="sport-rollerblades" value="rollerblades">Rollderblades</option>
+                    </select>
+                    <select className="filter" name="difficulty-select">
+                    <option name="difficulty-none" value={null}>Difficulty</option>
+                    <option name="difficulty-beginer" value="beginer">beginner</option>
+                    <option name="difficulty-intermediate" value="intermediate">intermediate</option>
+                    <option name="difficulty-hard" value="expert">expert</option>
+                    <option name="difficulty-expert" value="bring a helmet">Bring a helmet</option>
+                    <option name="difficulty-pro" value="the helmet won't help">The helmet won't help</option>
+                    </select>
+                    <select className="filter" name="security-level">
+                    <option name="security-none" value={null}>Security</option>
+                    <option name="security-none" value="none">None</option>
+                    <option name="security-low" value="low">Low</option>
+                    <option name="security-medium" value="medium">Medium</option>
+                    <option name="security-high" value="high">High</option>
+                    </select>
+                    </div>
+                    <div className="city"><input type="text" className="city-search" name="city" id="city-search" placeholder="Search City"/></div>
+                    <div className="search"><button type='submit' className='search-button' >SEARCH</button></div>
+                </form>
+                </section>
 
-            {list()}
+                {list()}
             
-            </>
+            </main>
         )
     }
 }

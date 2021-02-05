@@ -1,6 +1,6 @@
 import React from 'react'
 import {Route, Link, Switch} from 'react-router-dom'
-import {faSnowboarding, faUserCircle} from '@fortawesome/free-solid-svg-icons'
+import {faSnowboarding, faUserCircle, faPlus} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import ApiContext from '../ApiContext'
 import config from '../config'
@@ -32,7 +32,7 @@ class App extends React.Component {
         .then(res => res.json())
         .then(json => {
             this.setState({
-                posts: json
+                posts: json.reverse()
             })
         })
         .catch(error => {
@@ -89,18 +89,18 @@ class App extends React.Component {
 
     handleAddPost = post => {
         this.setState({
-            posts: [...this.state.posts, post]
+            posts: [ post, ...this.state.posts ]
         })
     }
 
-    handleAddUser = user => {
-        this.setState({
-            users: [
-                ...this.state.user,
-                user
-            ]
-        })
-    }
+    // handleAddUser = user => {
+    //     this.setState({
+    //         users: [
+    //             ...this.state.user,
+    //             user
+    //         ]
+    //     })
+    // }
 
     // handleUpdateNote = updatedNote => {
     //     const newNotes = this.context.notes.map(note =>
@@ -113,12 +113,15 @@ class App extends React.Component {
     //     })
     // }
 
-    // handleDeleteNote = noteId => {
-    //     const newNotes = this.state.notes.filter(note => note.note_id !== noteId)
-    //     this.setState({
-    //         notes: newNotes
-    //     })
-    // }
+    handleDeletePost = postId => {
+        const newPosts = this.state.posts.filter(post => {
+            console.log(post.post_id, postId)
+            return post.post_id !== postId
+        })
+        this.setState({
+            posts: newPosts
+        })
+    }
 
     // handleDeleteFolder = folderId => {
     //     const newFolders = this.state.folders.filter(folder => folder.folder_id !== folderId)
@@ -162,14 +165,15 @@ class App extends React.Component {
     
     render() {
         const value = {
-            posts: this.state.posts.reverse(),
+            posts: this.state.posts,
             userId: this.state.userId,
             handleLoginSuccess: this.handleLoginSuccess,
             addPost: this.handleAddPost,
+            deletePost: this.handleDeletePost
         }
         const logOut = TokenService.hasAuthToken() ? <button className="log-out" onClick={this.handleLogOut}>log-out</button> : ''
         const profilePath = TokenService.hasAuthToken() ? `/${window.localStorage.getItem('user_id')}` : '/login'
-        const upload = TokenService.hasAuthToken() ? <footer className='App_footer'><Link to='/post'>upload</Link></footer> : ''
+        const upload = TokenService.hasAuthToken() ? <footer className='App_footer'><Link to='/post'><FontAwesomeIcon className="add-icon" icon={faPlus} size='2x'/></Link></footer> : ''
         
         return (
             <ApiContext.Provider value={value}>

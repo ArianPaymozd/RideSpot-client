@@ -1,0 +1,92 @@
+.register-main {
+    height: 100%;
+    width: 99%;
+    display: grid;
+    grid-template-columns: 2% 10% 76% 10% 2%;
+    grid-template-rows: .5% 1% 60% 7% 10%;
+    grid-template-areas: 
+        ". . . . ."
+        ". . . . ."
+        ". slider slider slider ."
+        ". . . . ."
+        ". . signUp . .";
+}
+
+.slider {
+    grid-area: slider;
+    display: grid;
+    grid-template-columns: 5% 90% 5%;
+    grid-template-rows: 8% 2% 75% 6% 10%;
+    grid-template-areas: 
+        "title title title"
+        ". . ."
+        "buttonLeft img buttonRight"
+        ". . ."
+        "caption caption caption";
+}
+
+.register-title {
+    grid-area: title;
+    text-align: center;
+    background-color: rgb(44, 43, 43);
+}
+
+.interface-img {
+    grid-area: img;
+    height: 80%;
+    border: none;
+}
+
+.left-button {
+    grid-area: buttonLeft;
+    padding: 0;
+    border: none;
+    background-color: rgba(2, 0, 0, 0);
+    color: white;
+}
+
+.right-button {
+    grid-area: buttonRight;
+    padding: 0;
+    border: none;
+    background-color: rgba(2, 0, 0, 0);
+    color: white;
+}
+
+.caption {
+    grid-area: caption;
+    font-size: .75em;
+    text-align: center;
+    height: fit-content;
+    margin: 0;
+    padding: 3px;
+    background-color: rgb(44, 43, 43);
+}
+
+.banner {
+    text-align: center;
+    grid-area: banner;
+}
+
+.signup-section {
+    grid-area: signUp;
+    text-align: center;
+}
+
+.signup-input {
+    border: none;
+    color: white;
+    border-bottom: solid 2px rgba(27, 27, 27, 0.829);
+    background-color: rgba(2, 0, 0, 0);
+    font-size: 1.5vh;
+    width: 40vw;
+    height: 4vh;
+    margin-bottom: 5px;
+}
+
+.signup-button {
+    background-color: rgba(2, 0, 0, 0);
+    border: solid 1px white;
+    border-radius: 8px;
+    color: white;
+}

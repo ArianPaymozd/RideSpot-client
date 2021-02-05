@@ -2,7 +2,7 @@ const Filters = {
     filterSport(posts, sport) {
         if (sport !== 'Sport') {
             const filtered = posts.filter(post => {
-                return post.sport === sport.toLowerCase()
+                return post.sport.toLowerCase() === sport.toLowerCase()
             })
             return filtered
         } else {
@@ -22,7 +22,7 @@ const Filters = {
     filterDifficulty(posts, difficulty) {
         if (difficulty !== 'Difficulty') {
             const filtered = posts.filter(post => {
-                return post.difficulty === difficulty
+                return post.difficulty.toLowerCase() === difficulty.toLowerCase()
             })
             return filtered
         } else {
@@ -32,7 +32,7 @@ const Filters = {
     filterSecurity(posts, security) {
         if (security !== 'Security') {
             const filtered = posts.filter(post => {
-                return post.security_level === security
+                return post.security_level.toLowerCase() === security.toLowerCase()
             })
             return filtered
         } else {

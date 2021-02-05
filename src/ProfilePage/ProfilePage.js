@@ -24,7 +24,7 @@ export default class ProfilePage extends React.Component {
         .then(res => {
             console.log(res)
             this.setState({
-                posts: res
+                posts: res.reverse()
             })
         })
         fetch(`${config.API_ENDPOINT}/users/${window.localStorage.getItem('user_id')}`, {
@@ -54,12 +54,33 @@ export default class ProfilePage extends React.Component {
         console.log(this.state.info)
     }
 
+    handleState = (postId) => {
+        const newPosts = this.state.posts.filter(post => {
+            console.log(post.post_id, postId)
+            return post.post_id !== postId
+        })
+        this.setState({
+            posts: newPosts
+        })
+    }
+
+    handleDelete = (postId) => {
+        fetch(`${config.API_ENDPOINT}/posts/${postId}`, {
+            method: 'DELETE',
+            headers: {
+              'authorization': `bearer ${TokenService.getAuthToken()}`,
+            }
+        })
+        this.context.deletePost(postId)
+        this.handleState(postId)
+    }
+
     render() {
         const postList = this.state.posts.map((post, idx) => {
             const title = post.title.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
             return (
                 <li className='post-item' key={idx}>
-                    <header className="post-header" >{title}</header>
+                    <header className="post-header-profile" ><div className="post-title">{title}</div> <button className="delete-button" onClick={() => this.handleDelete(post.post_id)}>Delete</button></header>
                     <img src={post.img} alt={post.title} />
                     {
                         this.state.info.includes(post.post_id)
@@ -69,6 +90,7 @@ export default class ProfilePage extends React.Component {
                             <p>Difficulty: {post.difficulty}</p>
                             <p>Security: {post.security_level}</p>
                             <address>Address: {post.spot_address}</address>
+                            
                         </div>
                         : ''
                     }
@@ -85,7 +107,7 @@ export default class ProfilePage extends React.Component {
         }
         return (
             <>
-                <header className="username" ><p className="username-text" >{this.state.userName}</p></header>
+                <header className="username" ><p className="username-text">{this.state.userName}</p></header>
                 {list()}
             </>
         )

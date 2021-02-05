@@ -7,7 +7,9 @@
     font-size: 3vh;
 }
 
-.post-header {
+.post-header-profile {
+    display: flex;
+    justify-content: space-between;
     background-color: black;
     padding-top: 3px;
     padding-bottom: 3px;
@@ -15,10 +17,24 @@
     height: 4.5vh;
 }
 
+.post-title {
+    margin-left: 1vw;
+}
+
+.delete-button {
+    background-color: rgba(2, 0, 0, 0);
+    border: solid 1px white;
+    border-radius: 8px;
+    color: white;
+    margin-right: 1vw;
+}
+
 .username-text {
+    padding-top: 2px;
     margin-bottom: 0px;
 }
 
 .post-item {
     padding-bottom: 10px;
+    margin-bottom: 5px;
 }

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import ApiContext from '../ApiContext'
 import AuthApiService from '../services/auth-service'
-import { Button } from '../Utils/Utils'
 
 export default class LoginForm extends Component {
   state = { error: null }
@@ -42,21 +41,12 @@ export default class LoginForm extends Component {
         <div role='alert'>
           {error && <p className='red'>{error}</p>}
         </div>
-        <div className='user_name'>
-          <label htmlFor='LoginForm__user_name'>
-          </label>
-          <br />
           <input
             required
             className='user_name'
             name='user_name'
             id='LoginForm__user_name'
             placeholder="User name" />
-        </div>
-        <div className='password'>
-          <label htmlFor='LoginForm__password'>
-          </label>
-          <br />
           <input
             required
             className='password'
@@ -66,19 +56,16 @@ export default class LoginForm extends Component {
             placeholder="Password" />
         </div>
         <div className="login-button">
-          <button type='submit' className="login-buttons">
+          <button type='submit' className="login-buttons ">
             Login
           </button>
         </div>
-        </div>
-        <div className="register">
-          <div className="register-message"><h4 >Don't have an account? Register now!</h4></div>
+        <div className="register-message"><h4 >Don't have an account? Register now!</h4></div>
         <Link className="register-button" to='/register'>
-        <button className="login-buttons">
+        <button className="login-buttons" onClick={this.props.onRegsiter}>
           Register
         </button>
         </Link>
-        </div>
       </form>
     )
   }

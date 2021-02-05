@@ -1,12 +1,23 @@
+.post-main {
+    display: grid;
+    grid-template-columns: 7% 86% 7%;
+    grid-template-rows: 10% 80% 10%;
+    grid-template-areas: 
+        ". . ."
+        ". main ."
+        ". . .";
+}
+
 .post-section {
+    grid-area: main;
     display: flex;
     justify-content: center;
     height: 60vh;
     width: 85vw;
-    margin-left: 7.5vw;
-    margin-top: 15vh;
     border: solid rgba(27, 27, 27, 0.829);
     border-radius: 8px;
+    margin: 0px;
+    padding: 0px;
     font-size: 1.5vh;
 }
 
@@ -15,7 +26,7 @@
     margin-top: 7vh;
 }
 
-input {
+.address, .title, .picture-link{
     border: none;
     color: white;
     border-bottom: solid 2px rgba(27, 27, 27, 0.829);
@@ -69,6 +80,14 @@ textarea {
 }
 
 select {
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    appearance: none;
+
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 0px;
+    background-position: right center;
     color: rgb(153, 149, 149);
     border: none;
     border-bottom: solid 2px rgba(27, 27, 27, 0.829);
@@ -79,8 +98,12 @@ select {
     padding-left: 3px;
 }
 
-option {
-    color: black;
+.post-option {
+    color: white;
+}
+
+.post-option:disabled {
+    color: rgb(179, 176, 176);
 }
 
 .button-section {
