@@ -35,6 +35,7 @@
     grid-area: title;
     text-align: center;
     background-color: rgb(44, 43, 43);
+    padding: 1.6%;
 }
 
 .interface-img {
@@ -86,6 +87,7 @@
     background-color: rgba(2, 0, 0, 0);
     font-size: 1.5vh;
     width: 40vw;
+    max-width: 400px;
     height: 4vh;
     margin-bottom: 5px;
 }
@@ -95,8 +97,18 @@
     border: solid 1px white;
     border-radius: 8px;
     color: white;
+    margin: 10px;
 }
 
 h2 {
     font-size: x-large;
+}
+
+@media only screen and (min-width: 1100px) {
+    .signup-input {
+        font-size: 90%;
+        padding: 3px;
+        margin: 3px;
+        height: 20%;
+    }
 }
