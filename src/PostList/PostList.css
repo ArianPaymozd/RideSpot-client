@@ -121,15 +121,18 @@ button.info-button {
     }
 
     .filter {
-        width: 6.5vw;
+        width: 8vw;
+        font-size: 70%;
     }
 
     .city-search {
-        width: 6.5vw;
+        width: 8vw;
+        font-size: 70%;
     }
     
     .search-button {
-        width: 5.95vw;
+        width: 7.95vw;
+        font-size: 65%;
     }
 
     .sign-in {

@@ -173,7 +173,7 @@ class App extends React.Component {
         }
         const logOut = TokenService.hasAuthToken() ? <button className="log-out" onClick={this.handleLogOut}>log-out</button> : ''
         const profilePath = TokenService.hasAuthToken() ? `/${window.localStorage.getItem('user_id')}` : '/login'
-        const upload = TokenService.hasAuthToken() ? <footer className='App_footer'><Link to='/post'><FontAwesomeIcon className="add-icon" icon={faPlus} size='2x'/></Link></footer> : ''
+        const upload = TokenService.hasAuthToken() ? <footer className='App_footer'><Link to='/post'><FontAwesomeIcon className="add-icon" icon={faPlus} size='2x'/></Link></footer> : <footer className='App_footer'></footer>
         
         return (
             <ApiContext.Provider value={value}>
