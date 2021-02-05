@@ -86,7 +86,7 @@ export default class PostList extends React.Component {
             if (!this.state.notFound) {
                 return (<ul className="posts" >{filteredPostList.length > 0 ? filteredPostList : postList}</ul>)
             } else {
-                return <h4>No posts found, please lower your standards bud.</h4>
+                return <h4 className="posts">No posts found, please lower your standards bud.</h4>
             }
         }
         return (
