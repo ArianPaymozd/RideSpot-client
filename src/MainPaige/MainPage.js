@@ -32,28 +32,30 @@ class MainPaige extends React.Component {
     render() {
          const images = [postList, filterList, addPost]
         return (
-            <div className="register-main" >
-                <ImageSlider images={images}/>
-                <section className="signup-section">
-                    <header className="sign-up">
-                        <h4>Sign Up Now</h4>
-                    </header>
-                    <form className='signup-form' onSubmit={this.handleSubmit}>
-                        <div>
-                        <input className="signup-input" placeholder='Full name' type="text" name='full_name' id='full_name' />
-                        </div>
-                        <div>
-                        <input className="signup-input" placeholder="Username" type="text" name='user_name' id='user_name' />
-                        </div>
-                        <div>
-                        <input className="signup-input" placeholder="Email" type="text" name='email' id='email' />
-                        </div>
-                        <div>
-                        <input className="signup-input" placeholder="Password" type="password" name='password' id='password' />
-                        </div>
-                        <button className="signup-button" type='submit'>Sign Up</button>
-                    </form>
-                </section>
+            <div className="center">
+                <div className="register-main" >
+                    <ImageSlider images={images}/>
+                    <section className="signup-section">
+                        <header className="sign-up">
+                            <h4>Sign Up Now</h4>
+                        </header>
+                        <form className='signup-form' onSubmit={this.handleSubmit}>
+                            <div>
+                            <input className="signup-input" placeholder='Full name' type="text" name='full_name' id='full_name' />
+                            </div>
+                            <div>
+                            <input className="signup-input" placeholder="Username" type="text" name='user_name' id='user_name' />
+                            </div>
+                            <div>
+                            <input className="signup-input" placeholder="Email" type="text" name='email' id='email' />
+                            </div>
+                            <div>
+                            <input className="signup-input" placeholder="Password" type="password" name='password' id='password' />
+                            </div>
+                            <button className="signup-button" type='submit'>Sign Up</button>
+                        </form>
+                    </section>
+                </div>
             </div>
         )
     }

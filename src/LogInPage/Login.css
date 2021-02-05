@@ -1,7 +1,16 @@
+.login-center {
+    display: flex;
+    justify-content: center;
+    padding-top: 4vh;
+
+}
+
 .LoginPage {
     padding: 5px;
     margin: 0;
     height: 40%;
+    max-width: 500px;
+    text-align: center;
 }
 
 .LoginForm {

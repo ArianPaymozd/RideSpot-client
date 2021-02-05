@@ -82,7 +82,7 @@ export default class AddPost extends React.Component {
                     </section>
                     <div className="select">
                     <section className="form-select overview-section">
-                        <select name="difficulty-select">
+                        <select className="upload-select" name="difficulty-select">
                         <option className="post-option" name="sport-rollerblades" value="" disabled selected>Difficulty</option>
                         <option className="post-option" name="sport-bike" value="Beginer">Beginer</option>
                         <option className="post-option" name="sport-skateboard" value="Intermediate">Intermediate</option>
@@ -92,7 +92,7 @@ export default class AddPost extends React.Component {
                         </select>
                     </section>
                     <section className="form-select overview-section">
-                        <select name="sport-select">
+                        <select className="upload-select" name="sport-select">
                         <option className="post-option" name="sport-select" disabled selected>Sport</option>
                         <option className="post-option" name="sport-bike" value="Bike">Bike</option>
                         <option className="post-option" name="sport-skateboard" value="Skateboard">Skateboard</option>
@@ -101,7 +101,7 @@ export default class AddPost extends React.Component {
                         </select>
                     </section>
                     <section className="form-select overview-section">
-                        <select name="security-level">
+                        <select className="upload-select" name="security-level">
                         <option className="post-option" name="security-level" disabled selected>Security</option>
                         <option className="post-option" name="security-none" value="None">None</option>
                         <option className="post-option" name="security-low" value="Low">Low</option>

@@ -3,6 +3,7 @@ import ApiContext from '../ApiContext'
 import TokenService from '../services/token-service'
 import config from '../config'
 import './ProfilePage.css'
+import AddPostPage from '../AddPost/AppPostPage'
 
 export default class ProfilePage extends React.Component {
     
@@ -106,10 +107,11 @@ export default class ProfilePage extends React.Component {
             }
         }
         return (
-            <>
-                <header className="username" ><p className="username-text">{this.state.userName}</p></header>
-                {list()}
-            </>
+            <div className="Profile_page">
+                
+                <main className="Profile_main"><header className="username" ><p className="username-text">{this.state.userName}</p></header>{list()}</main>
+                <main className="AddPost_main"><AddPostPage /></main>
+            </div>
         )
     }
 }

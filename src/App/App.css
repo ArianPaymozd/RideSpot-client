@@ -19,7 +19,11 @@ body {
         'footer';
 }
 
-.App_main {
+.App_upload {
+    display: none;
+}
+
+.main_content {
     grid-area: main;
     overflow: auto;
 }

@@ -1,6 +1,12 @@
+.center {
+    display: flex;
+    justify-content: center;
+}
+
 .register-main {
     height: 100%;
     width: 99%;
+    max-width: 700px;
     display: grid;
     grid-template-columns: 2% 10% 76% 10% 2%;
     grid-template-rows: .5% 1% 60% 7% 10%;

@@ -197,32 +197,33 @@ class App extends React.Component {
                             </div>
                         </div>
                     </header>
-                    <main className='App_main'>
-                        <Switch>
-                            <Route
-                            exact
-                            path={'/'}
-                            component={PostList}
-                            />
-                            <PublicOnlyRoute
-                            path={'/login'}
-                            component={LoginPage}
-                            />
-                            <PublicOnlyRoute
-                            path={'/register'}
-                            component={MainPaige}
-                            />
-                            <PrivateRoute
-                            path={'/post'}
-                            component={AddPostPage}
-                            />
-                            <PrivateRoute
-                            path={'/:userId'}
-                            component={ProfilePage}
-                            />
-                            
-                        </Switch>
-                    </main>
+                    <div className="main_content">
+                        <main className='App_main'>
+                            <Switch>
+                                <Route
+                                exact
+                                path={'/'}
+                                component={PostList}
+                                />
+                                <PublicOnlyRoute
+                                path={'/login'}
+                                component={LoginPage}
+                                />
+                                <PublicOnlyRoute
+                                path={'/register'}
+                                component={MainPaige}
+                                />
+                                <PrivateRoute
+                                path={'/post'}
+                                component={AddPostPage}
+                                />
+                                <PrivateRoute
+                                path={'/:userId'}
+                                component={ProfilePage}
+                                />
+                            </Switch>
+                        </main>
+                    </div>
                     {upload}
                 </div>
             </ApiContext.Provider>

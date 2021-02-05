@@ -79,7 +79,7 @@ textarea {
     margin: 3px;
 }
 
-select {
+.upload-select {
     -webkit-appearance: none; 
     -moz-appearance: none;
     appearance: none;
@@ -117,4 +117,38 @@ select {
     border: solid 1px white;
     border-radius: 8px;
     color: white;
+}
+
+@media only screen and (min-width: 1100px) {
+    .post-section {
+        width: auto;
+        height: 70vh;
+    }
+
+    .upload-select {
+        width: 7vw;
+        height: 5vh;
+        font-size: 2vh;
+    }
+
+    .address, .title, .picture-link{
+        width: 7vw;
+        height: 5vh;
+        font-size: 2vh;
+    }
+
+    textarea {
+        width: 14vw;
+        height: 5vh;
+        font-size: 2vh;
+    }
+
+    .post-button {
+        width: 15%;
+        font-size: 3vh;
+        padding: 5px;
+    }
+    .no-img {
+        font-size: 2vh;
+    }
 }
