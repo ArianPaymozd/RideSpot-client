@@ -34,38 +34,40 @@ export default class LoginForm extends Component {
     console.log(this.context)
     return (
       <form
-        className='LoginForm'
-        onSubmit={this.handleSubmitJwtAuth}
+          className='LoginForm'
+          onSubmit={this.handleSubmitJwtAuth}
       >
-        <div className="login">
-        <div role='alert'>
-          {error && <p className='red'>{error}</p>}
-        </div>
-          <input
-            required
-            className='user_name'
-            name='user_name'
-            id='LoginForm__user_name'
-            placeholder="User name" />
-          <input
-            required
-            className='password'
-            name='password'
-            type='password'
-            id='LoginForm__password'
-            placeholder="Password" />
-        </div>
-        <div className="login-button">
-          <button type='submit' className="login-buttons ">
-            Login
-          </button>
-        </div>
-        <div className="register-message"><h4 >Don't have an account? Register now!</h4></div>
-        <Link className="register-button" to='/register'>
-        <button className="login-buttons" onClick={this.props.onRegsiter}>
-          Register
-        </button>
-        </Link>
+          <div className="login">
+          <div role='alert'>
+              {error && <p className='red'>{error}</p>}
+          </div>
+              <input
+                  required
+                  className='user_name'
+                  name='user_name'
+                  id='LoginForm__user_name'
+                  placeholder="User name"
+                  aria-label="Username" />
+              <input
+                  required
+                  className='password'
+                  name='password'
+                  type='password'
+                  id='LoginForm__password'
+                  placeholder="Password"
+                  aria-label="Password" />
+          </div>
+          <div className="login-button">
+              <button type='submit' className="login-buttons" aria-label="log in button">
+                 Login
+              </button>
+          </div>
+          <div className="register-message"><h4 >Don't have an account? Register now!</h4></div>
+              <Link className="register-button" to='/register'>
+                  <button className="login-buttons" onClick={this.props.onRegsiter} aria-label="register button">
+                      Register
+                  </button>
+              </Link>
       </form>
     )
   }

@@ -1,5 +1,6 @@
-import React from 'react'
-import AddPost from './AddPost'
+import React, {Suspense, lazy} from 'react'
+
+const AddPost = lazy(() => import('./AddPost'))
 
 export default class AddPostPage extends React.Component {
     static defaultProps = {
@@ -16,6 +17,6 @@ export default class AddPostPage extends React.Component {
     }
 
     render() {
-        return <AddPost postSuccess={this.handlePostSuccess} />
+        return <Suspense fallback={<div>Loading...</div>} > <AddPost postSuccess={this.handlePostSuccess} /></Suspense>
     }
 }

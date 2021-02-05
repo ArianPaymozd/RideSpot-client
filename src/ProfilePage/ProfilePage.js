@@ -81,7 +81,7 @@ export default class ProfilePage extends React.Component {
             const title = post.title.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
             return (
                 <li className='post-item' key={idx}>
-                    <header className="post-header-profile" ><div className="post-title">{title}</div> <button className="delete-button" onClick={() => this.handleDelete(post.post_id)}>Delete</button></header>
+                    <header className="post-header-profile" ><div className="post-title">{title}</div> <button className="delete-button" aria-label="delete button" onClick={() => this.handleDelete(post.post_id)}>Delete</button></header>
                     <img src={post.img} alt={post.title} />
                     {
                         this.state.info.includes(post.post_id)
@@ -91,11 +91,10 @@ export default class ProfilePage extends React.Component {
                             <p>Difficulty: {post.difficulty}</p>
                             <p>Security: {post.security_level}</p>
                             <address>Address: {post.spot_address}</address>
-                            
                         </div>
                         : ''
                     }
-                    <button className="info-button" onClick={() => this.handleInfo(post.post_id)}>{this.state.info.includes(post.post_id) ? "less..." : "more..."}</button>
+                    <button className="info-button" aria-label="info button" onClick={() => this.handleInfo(post.post_id)}>{this.state.info.includes(post.post_id) ? "less..." : "more..."}</button>
                 </li>
             )
         })
@@ -108,7 +107,6 @@ export default class ProfilePage extends React.Component {
         }
         return (
             <div className="Profile_page">
-                
                 <main className="Profile_main"><header className="username" ><p className="username-text">{this.state.userName}</p></header>{list()}</main>
                 <main className="AddPost_main"><AddPostPage /></main>
             </div>

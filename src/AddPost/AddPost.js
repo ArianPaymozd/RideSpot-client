@@ -62,28 +62,28 @@ export default class AddPost extends React.Component {
                     <form id="new-spot" onSubmit={this.handlePost}>
                         <div className="main-info">
                             <div>
-                                <section className="form-section overview-section">
-                                    <input className="title" type="text" name="spot-title" placeholder="Title" required />
+                                <section className="form-section overview-section" >
+                                    <input className="title" type="text" name="spot-title" placeholder="Title" aria-label="Title" required />
                                 </section>
                                 <section className="form-section overview-section">
-                                    <input className="picture-link" type="text" name="spot-picture" placeholder="Picture Link" onChange={this.handleImg} required />
+                                    <input className="picture-link" type="text" name="spot-picture" placeholder="Picture Link" onChange={this.handleImg} aria-label="Picture link" required />
                                 </section>
                                 <section className="form-section overview-section">
-                                    <textarea id="spot-description" name="spot-description" placeholder="Description"></textarea>
+                                    <textarea id="spot-description" name="spot-description" placeholder="Description" aria-label="Description" required></textarea>
                                 </section>
                             </div>
-                            <div className="img">{this.state.img ? <img className="post-img" src={this.state.img} alt=""/> : <p className="no-img">No image selected</p>}</div>
+                            <div className="img">{this.state.img ? <img className="post-img" name="post image" src={this.state.img} alt=""/> : <p className="no-img">No image selected</p>}</div>
                         </div>
                     <section className="form-section overview-section">
-                        <input className="address" type="text" name="spot-address" placeholder="Address" />
-                        <input className="address" type="text" name="spot-city" placeholder="City" required />
-                        <input className="address" type="text" name="spot-state" placeholder="State" required />
-                        <input className="address" type="text" name="spot-zipcode"  placeholder="Zip" />
+                        <input className="address" type="text" name="spot-address" placeholder="Address" aria-label="Address" required />
+                        <input className="address" type="text" name="spot-city" placeholder="City" aria-label="City" required />
+                        <input className="address" type="text" name="spot-state" placeholder="State" aria-label="State" maxLength="2" required />
+                        <input className="address" type="text" name="spot-zipcode"  placeholder="Zip" aria-label="Zip code" maxLength="5" required />
                     </section>
                     <div className="select">
                     <section className="form-select overview-section">
-                        <select className="upload-select" name="difficulty-select">
-                        <option className="post-option" name="sport-rollerblades" value="" disabled selected>Difficulty</option>
+                        <select className="upload-select" name="difficulty-select" aria-label="difficulty select" defaultValue="DEFAULT" required >
+                        <option className="post-option" name="sport-rollerblades" value="DEFAULT" disabled >Difficulty</option>
                         <option className="post-option" name="sport-bike" value="Beginer">Beginer</option>
                         <option className="post-option" name="sport-skateboard" value="Intermediate">Intermediate</option>
                         <option className="post-option" name="sport-scooter" value="Expert">Expert</option>
@@ -92,8 +92,8 @@ export default class AddPost extends React.Component {
                         </select>
                     </section>
                     <section className="form-select overview-section">
-                        <select className="upload-select" name="sport-select">
-                        <option className="post-option" name="sport-select" disabled selected>Sport</option>
+                        <select className="upload-select" name="sport-select" aria-label="sport select" defaultValue="DEFAULT" required >
+                        <option className="post-option" name="sport-select" value="DEFAULT" disabled >Sport</option>
                         <option className="post-option" name="sport-bike" value="Bike">Bike</option>
                         <option className="post-option" name="sport-skateboard" value="Skateboard">Skateboard</option>
                         <option className="post-option" name="sport-scooter" value="Scooter">Scooter</option>
@@ -101,8 +101,8 @@ export default class AddPost extends React.Component {
                         </select>
                     </section>
                     <section className="form-select overview-section">
-                        <select className="upload-select" name="security-level">
-                        <option className="post-option" name="security-level" disabled selected>Security</option>
+                        <select className="upload-select" name="security-level" aria-label="security select" defaultValue="DEFAULT" required>
+                        <option className="post-option" name="security-level"value="DEFAULT" disabled >Security</option>
                         <option className="post-option" name="security-none" value="None">None</option>
                         <option className="post-option" name="security-low" value="Low">Low</option>
                         <option className="post-option" name="security-medium" value="Medium">Medium</option>
@@ -111,7 +111,7 @@ export default class AddPost extends React.Component {
                     </section>
                     </div>
                     <section className="button-section">
-                        <button className="post-button" type="submit">Post</button>
+                        <button className="post-button" aria-label="post button" type="submit">Post</button>
                     </section>
                     </form>
                     </div>

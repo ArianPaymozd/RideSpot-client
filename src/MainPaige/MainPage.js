@@ -1,10 +1,11 @@
-import React from 'react'
-import ImageSlider from './ImageSlider'
+import React, {Suspense, lazy} from 'react'
 import AuthApiService from '../services/auth-service'
 import addPost from './images/add-post[443].jpg'
 import filterList from './images/filter-list[442].jpg'
 import postList from './images/post-list[441].jpg'
 import './MainPage.css'
+
+const ImageSlider = lazy(() => import('./ImageSlider'))
 
 class MainPaige extends React.Component {
     handleSubmit = (e) => {
@@ -34,25 +35,27 @@ class MainPaige extends React.Component {
         return (
             <div className="center">
                 <div className="register-main" >
-                    <ImageSlider images={images}/>
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <ImageSlider images={images}/>
+                    </Suspense>
                     <section className="signup-section">
                         <header className="sign-up">
-                            <h4>Sign Up Now</h4>
+                            <h2>Sign Up Now</h2>
                         </header>
                         <form className='signup-form' onSubmit={this.handleSubmit}>
                             <div>
-                            <input className="signup-input" placeholder='Full name' type="text" name='full_name' id='full_name' />
+                                <input className="signup-input" placeholder='Full name' type="text" name='full_name' id='full_name' aria-label="full name" required />
                             </div>
                             <div>
-                            <input className="signup-input" placeholder="Username" type="text" name='user_name' id='user_name' />
+                                <input className="signup-input" placeholder="Username" type="text" name='user_name' id='user_name' aria-label="username" required />
                             </div>
                             <div>
-                            <input className="signup-input" placeholder="Email" type="text" name='email' id='email' />
+                                <input className="signup-input" placeholder="Email" type="text" name='email' id='email' aria-label="email" required />
                             </div>
                             <div>
-                            <input className="signup-input" placeholder="Password" type="password" name='password' id='password' />
+                                <input className="signup-input" placeholder="Password" type="password" name='password' id='password' aria-label="password" required />
                             </div>
-                            <button className="signup-button" type='submit'>Sign Up</button>
+                            <button className="signup-button" name="signup-button" type='submit'>Sign Up</button>
                         </form>
                     </section>
                 </div>
