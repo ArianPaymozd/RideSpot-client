@@ -8,6 +8,12 @@ import './MainPage.css'
 const ImageSlider = lazy(() => import('./ImageSlider'))
 
 class MainPaige extends React.Component {
+    static defaultProps = {
+        history: {
+            push: () => {}
+        }
+    }
+
     handleSubmit = (e) => {
         e.preventDefault()
         const { user_name, password, full_name, email } = e.target
@@ -17,15 +23,28 @@ class MainPaige extends React.Component {
             full_name: full_name.value,
             email: email.value,
         })
-        .then(user => {
-            full_name.value = ''
-            password.value = ''
-            user_name.value = ''
-            email.value = ''
+        .then(res => {
+            AuthApiService.postLogin({
+            user_name: user_name.value,
+            password: password.value,
+            })
+            .then(res => {
+                full_name.value = ''
+                password.value = ''
+                user_name.value = ''
+                email.value = ''
+                window.localStorage.setItem('user_id', res.user_id)
+                this.props.history.push(`/${window.localStorage.getItem('user_id')}`)
+            })
+            .catch(res => {
+                this.setState({error: res.error})
+            })
         })
         .catch(res => {
             this.setState({error: res.error})
         })
+        
+
     }
 
     
