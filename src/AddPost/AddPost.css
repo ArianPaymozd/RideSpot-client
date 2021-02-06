@@ -129,6 +129,7 @@ textarea {
         width: 7vw;
         height: 5vh;
         font-size: 2vh;
+        border-radius: 8px;
     }
 
     .address, .title, .picture-link{
@@ -150,5 +151,20 @@ textarea {
     }
     .no-img {
         font-size: 2vh;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+
+    .upload-select {
+        border: 1px solid black;
+        color: black;
+        background-color: white;
+        border-radius: 8px;
+    }
+    
+    .search-button {
+        color: black;
+        border-color: black;
     }
 }

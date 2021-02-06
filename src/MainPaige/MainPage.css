@@ -116,3 +116,22 @@ h2 {
         font-size: 1em;
     }
 }
+
+@media (prefers-color-scheme: light) {
+    .left-button {
+        font-weight: bold;
+        color: black;
+    }
+    
+    .right-button {
+        color: black;
+    }
+
+    .register-title {
+        background-color: rgb(240, 214, 214);
+    }
+
+    .caption {
+        background-color: rgb(240, 214, 214);
+    }
+}

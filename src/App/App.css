@@ -167,3 +167,50 @@ border-radius: 10px;
 background: white;
 border-radius: 10px;
 }
+
+@media only screen and (min-width: 1025px) {
+    svg.add-icon {
+        display: none;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    body {
+      color: black;
+      background: white;
+    }
+
+    .App_header {
+        background-color: rgb(240, 214, 214);
+    }
+
+    .App_footer {
+        background-color: rgb(240, 214, 214);
+    }
+  
+    body a {
+      color: black;
+    }
+    
+    .list-link:hover {
+        color: black;
+    }
+
+    svg.svg-inline--fa {
+        color: black;
+        background-color: rgb(240, 214, 214);
+        border: none;
+    }
+
+    svg.add-icon {
+        border: solid black;
+    }
+
+    .dropbtn {
+        background-color: rgb(240, 214, 214);
+    }
+
+    .dropdown:hover .dropbtn {
+        background-color: rgb(240, 214, 214);
+    }
+}
