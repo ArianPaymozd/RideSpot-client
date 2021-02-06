@@ -2,9 +2,13 @@
     display: none;
 }
 
+.Profile_main {
+    font-weight: bold;
+}
+
 .username {
     display: flex;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgb(43, 42, 42);
     height: 5vh;
     padding-left: 10px;
     font-weight: bold;
@@ -23,6 +27,7 @@
 
 .post-title {
     margin-left: 1vw;
+    font-size: 105%;
 }
 
 .delete-button {
@@ -78,11 +83,15 @@ button.info-button {
     .post-header-profile {
         height: 6vh;
     }
+
+    .post-title {
+        font-size: 150%;
+    }
 }
 
 @media (prefers-color-scheme: light) {
-    .Profile_page {
-        font-weight: bold;
+    .username {
+        background-color: white;
     }
 
     .post-item {

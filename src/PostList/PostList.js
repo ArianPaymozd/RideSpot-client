@@ -50,7 +50,7 @@ export default class PostList extends React.Component {
                     <img src={post.img} alt={post.title} />
                     {
                         this.state.info.includes(post.post_id)
-                        ? <div>
+                        ? <div className="info">
                             <p>Sport: {post.sport}</p>
                             <p>Description: {post.spot_description}</p>
                             <p>Difficulty: {post.difficulty}</p>
@@ -71,7 +71,7 @@ export default class PostList extends React.Component {
                     <img src={post.img} alt={post.title} />
                     {
                         this.state.info.includes(post.post_id)
-                        ? <div>
+                        ? <div className="info">
                             <p>Sport: {post.sport}</p>
                             <p>Description: {post.spot_description}</p>
                             <p>Difficulty: {post.difficulty}</p>

@@ -36,6 +36,7 @@
     text-align: center;
     background-color: rgb(44, 43, 43);
     padding: 1.6%;
+    border-radius: 8px;
 }
 
 .interface-img {
@@ -68,6 +69,7 @@
     margin: 0;
     padding: 3px;
     background-color: rgb(44, 43, 43);
+    border-radius: 8px;
 }
 
 .banner {
@@ -85,11 +87,11 @@
     color: white;
     border-bottom: solid 2px rgba(27, 27, 27, 0.829);
     background-color: rgba(2, 0, 0, 0);
-    font-size: 1.5vh;
+    font-size: 2vh;
     width: 40vw;
     max-width: 400px;
-    height: 4vh;
-    margin-bottom: 5px;
+    height: 4.5vh;
+    margin-bottom: 10px;
 }
 
 .signup-button {
@@ -106,10 +108,9 @@ h2 {
 
 @media only screen and (min-width: 1025px) {
     .signup-input {
-        font-size: 90%;
+        font-size: 100%;
         padding: 3px;
-        margin: 3px;
-        height: 20%;
+        line-height: 90%;
     }
 
     .caption {
