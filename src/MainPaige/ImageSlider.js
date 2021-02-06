@@ -53,7 +53,7 @@ const ImageSlider = ({ images }) => { // takes in images as props
       }
       if (index === 2) {
         return (
-          <p className="caption" >We all know the best rail in the world is the one at your high school, but there still might be a better one out there right? With ride spot you can find that new rail and much more. Sort through our communities list of spots by sport, difficulty, and security level to discover your new favorite place to hurt yourself.</p>
+          <p className="caption" >We all know the rail at your high school is amazing, but there still might be a better one out there right? With ride spot you can find that new rail and much more. Sort through our communities list of spots by sport, difficulty, and security level to discover your new favorite place to hurt yourself.</p>
         )
       }
     }

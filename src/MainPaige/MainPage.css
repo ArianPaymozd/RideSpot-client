@@ -62,7 +62,7 @@
 
 .caption {
     grid-area: caption;
-    font-size: .75em;
+    font-size: .9em;
     text-align: center;
     height: fit-content;
     margin: 0;
@@ -110,5 +110,9 @@ h2 {
         padding: 3px;
         margin: 3px;
         height: 20%;
+    }
+
+    .caption {
+        font-size: 1em;
     }
 }
