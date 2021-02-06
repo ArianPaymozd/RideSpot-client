@@ -57,6 +57,7 @@ body {
 svg.svg-inline--fa {
     bottom: 0;
     height: 4vh;
+    width: auto;
     padding-top: 8px;
 }
 
