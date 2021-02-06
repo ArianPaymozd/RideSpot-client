@@ -1,11 +1,11 @@
 .PostList_main {
     width: 100%;
     display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-columns: 100%;
     grid-template-rows: fit-content(8%) 1fr;
     grid-template-areas: 
-        'filter filter filter city search'
-        'main main main main main';
+        'filter'
+        'main';
 }
 
 .AddPost_main {
@@ -26,14 +26,14 @@
     height: 4.5vh;
 }
 
-.filter-grid {
+.filter-form {
     grid-area: filter;
-    display: flex;
-    margin-left: .5vw;
+    background-color: rgb(43, 42, 42);
 }
 
-.search {
-    grid-area: search;
+.filter-grid {
+    display: flex;
+    margin-left: .5vw;
 }
 
 .filter {
@@ -104,8 +104,9 @@ button.info-button {
         height: 85vh;
         display: grid;
         grid-template-columns: 5% 42.5% 5% 42.5% 5%;
-        grid-template-rows: 100%;
+        grid-template-rows: 2% 98%;
         grid-template-areas: 
+            ". . . . ."
             ". posts . upload .";
     }
 
@@ -162,6 +163,10 @@ button.info-button {
 @media (prefers-color-scheme: light) {
     .PostList_page {
         font-weight: bold;
+    }
+
+    .filter-form {
+        background-color: white;
     }
 
     .filter {

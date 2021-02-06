@@ -55,8 +55,9 @@ button.info-button {
         height: 85vh;
         display: grid;
         grid-template-columns: 5% 42.5% 5% 42.5% 5%;
-        grid-template-rows: 100%;
+        grid-template-rows: 2% 98%;
         grid-template-areas: 
+            ". . . . ."
             ". posts . upload .";
     }
 
@@ -71,7 +72,9 @@ button.info-button {
         grid-area: posts;
         overflow: auto;
         height: 85vh;
+        border-radius: 12px;
     }
+
     .post-header-profile {
         height: 6vh;
     }
