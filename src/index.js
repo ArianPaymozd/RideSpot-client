@@ -6,6 +6,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { BrowserRouter } from 'react-router-dom'
 import 'typeface-roboto'
+import 'typeface-permanent-marker'
 import './index.css'
 import App from './App/App'
 
