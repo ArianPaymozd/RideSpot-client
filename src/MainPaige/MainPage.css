@@ -91,7 +91,7 @@
 .signup-input {
     border: none;
     color: white;
-    border-bottom: solid 2px rgba(27, 27, 27, 0.829);
+    border-bottom: solid 2px rgb(61, 61, 61);
     background-color: rgba(2, 0, 0, 0);
     font-size: 2vh;
     width: 40vw;
@@ -112,7 +112,7 @@ h2 {
     font-size: x-large;
 }
 
-@media only screen and (min-width: 1025px) {
+@media only screen and (min-width: 800px) {
     .signup-input {
         font-size: 100%;
         padding: 3px;
@@ -121,6 +121,11 @@ h2 {
 
     .caption {
         font-size: 1em;
+    }
+
+    .signup-button {
+        width: 30%;
+        font-size: 120%;
     }
 }
 
@@ -140,5 +145,18 @@ h2 {
 
     .caption {
         background-color: rgb(240, 191, 191);
+    }
+
+    .signup-input {
+        color: black;
+    }
+
+    .signup-button {
+        border-color: black;
+        color: black;
+    }
+
+    .password-description {
+        color: black;
     }
 }

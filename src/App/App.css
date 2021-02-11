@@ -47,9 +47,8 @@ textarea:focus {
     grid-area: main;
 }
 
-
-
 .App_header {
+    font-family: Chalkduster, "Segoe UI";
     grid-area: header;
     padding-left: 5px;
     padding-right: 5px;
@@ -73,7 +72,6 @@ textarea:focus {
     padding-top: 3px;
     padding-bottom: 2px;
 }
-
 
 svg.svg-inline--fa {
     height: 4vh;
@@ -105,13 +103,11 @@ svg.add-icon {
     cursor: pointer;
 }
 
-/* The container <div> - needed to position the dropdown content */
 .dropdown {
     position: relative;
     display: inline-block;
 }
 
-/* Dropdown Content (Hidden by Default) */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -121,7 +117,6 @@ svg.add-icon {
     border-radius: 8px;
 }
 
-/* Links inside the dropdown */
 .dropdown-content a {
     color: black;
     padding: 0px 12px 4px 12px;
@@ -137,13 +132,11 @@ hr {
     margin: 0;
 }
 
-/* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
     display: block;
     text-align: center;
 }
 
-/* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
     background-color: black;
 }
@@ -204,12 +197,11 @@ border-radius: 10px;
     border-top: 16px solid rgb(78, 78, 78);
     width: 120px;
     height: 120px;
-    -webkit-animation: spin 2s linear infinite; /* Safari */
+    -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
     margin-top: 20vh;
   }
   
-  /* Safari */
   @-webkit-keyframes spin {
     0% { -webkit-transform: rotate(0deg); }
     100% { -webkit-transform: rotate(360deg); }
@@ -220,7 +212,7 @@ border-radius: 10px;
     100% { transform: rotate(360deg); }
   }
 
-@media only screen and (min-width: 1025px) {
+@media only screen and (min-width: 800px) {
     svg.add-icon {
         display: none;
     }

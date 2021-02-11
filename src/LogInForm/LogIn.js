@@ -32,15 +32,15 @@ export default class LoginForm extends Component {
   render() {
     const { error } = this.state
     console.log(this.context)
-    return this.state.loading ? (<div className="loading"></div>) : (
+    return this.state.loading && !this.state.error ? (<div className="loading"></div>) :(
       <form
           className='LoginForm'
           onSubmit={this.handleSubmitJwtAuth}
       >
-          <div className="login">
-          <div role='alert'>
-              {error && <p className='red'>{error}</p>}
+          <div className="alert" role='alert'>
+              {error && <p className='alert-text'>Incorrect username or password</p>}
           </div>
+          <div className="login">
               <input
                   required
                   className='user_name'

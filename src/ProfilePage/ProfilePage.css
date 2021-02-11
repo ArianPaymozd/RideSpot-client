@@ -56,7 +56,7 @@ button.info-button {
     border-style: none;
 }
 
-@media only screen and (min-width: 1025px) {
+@media only screen and (min-width: 800px) {
     .Profile_page {
         max-width: 100%;
         height: 85vh;

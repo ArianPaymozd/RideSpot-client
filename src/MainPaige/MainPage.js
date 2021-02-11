@@ -14,6 +14,11 @@ class MainPaige extends React.Component {
         }
     }
 
+    state = {
+        error: null,
+        password: false
+    }
+
     handleSubmit = (e) => {
         e.preventDefault()
         const { user_name, password, full_name, email } = e.target
@@ -43,11 +48,13 @@ class MainPaige extends React.Component {
         .catch(res => {
             this.setState({error: res.error})
         })
-        
-
     }
 
-    
+    handlePasswordDescription = () => {
+        this.setState({
+            password: true
+        })
+    }
 
     render() {
          const images = [postList, filterList, addPost]
@@ -62,6 +69,7 @@ class MainPaige extends React.Component {
                             <h2>Sign Up Now</h2>
                         </header>
                         <form className='signup-form' onSubmit={this.handleSubmit}>
+                            {this.state.error && <p>{this.state.error}</p>}
                             <div>
                                 <input className="signup-input" placeholder='Full name' type="text" name='full_name' id='full_name' aria-label="full name" autoComplete="off" required />
                             </div>
@@ -72,8 +80,11 @@ class MainPaige extends React.Component {
                                 <input className="signup-input" placeholder="Email" type="text" name='email' id='email' aria-label="email" autoComplete="off" required />
                             </div>
                             <div>
-                                <input className="signup-input" placeholder="Password" type="password" name='password' id='password' aria-label="password" autoComplete="off" required />
+                                <input className="signup-input" placeholder="Password" type="password" name='password' id='password' aria-label="password" autoComplete="off" onClick={this.handlePasswordDescription} required />
+                                <br />
+                                {this.state.password && <label className="password-label" htmlFor="password">Password must contain one upper case, lower case, number and special character</label>}
                             </div>
+                            
                             <button className="signup-button" name="signup-button" type='submit'>Sign Up</button>
                         </form>
                     </section>

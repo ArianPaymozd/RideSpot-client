@@ -111,7 +111,7 @@ button.info-button {
     padding: 8px;
 }
 
-@media only screen and (min-width: 1025px) {
+@media only screen and (min-width: 800px) {
     .PostList_page {
         max-width: 100%;
         height: 85vh;
@@ -164,10 +164,10 @@ button.info-button {
     }
 
     .sign-in {
-        text-align: center;
-        padding-top: 30%;
+        height: 90%;
         display: flex;
         justify-content: center;
+        align-items: center;
     }
 
     .sign-in-text {

@@ -16,7 +16,7 @@
     align-items: center;
     height: 150%;
     width: 85vw;
-    border: solid rgba(27, 27, 27, 0.829);
+    border: solid rgb(61, 61, 61);
     border-radius: 8px;
     margin: 0px;
     padding: 0px;
@@ -36,7 +36,7 @@
 .address, .title, .picture-link{
     border: none;
     color: white;
-    border-bottom: solid 2px rgba(27, 27, 27, 0.829);
+    border-bottom: solid 2px rgb(61, 61, 61);
     background-color: rgba(2, 0, 0, 0);
     font-size: 1.5vh;
     width: 20vw;
@@ -47,7 +47,7 @@
 textarea {
     border: none;
     color: white;
-    border-bottom: solid 2px rgba(27, 27, 27, 0.829);
+    border-bottom: solid 2px rgb(61, 61, 61);
     background-color: rgba(2, 0, 0, 0);
     font-size: 1.5vh;
     width: 41vw;
@@ -125,7 +125,7 @@ textarea {
     color: white;
 }
 
-@media only screen and (min-width: 1025px) {
+@media only screen and (min-width: 800px) {
     .post-main {
         height: 100%;
         display: grid;
@@ -162,8 +162,8 @@ textarea {
     }
 
     .post-button {
-        width: 15%;
-        font-size: 3vh;
+        width: 20%;
+        font-size: 110%;
         padding: 5px;
     }
     .no-img {
