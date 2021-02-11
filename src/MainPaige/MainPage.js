@@ -54,7 +54,7 @@ class MainPaige extends React.Component {
         return (
             <div className="center">
                 <div className="register-main" >
-                    <Suspense fallback={<div>Loading...</div>}>
+                    <Suspense fallback={<div ></div>}>
                         <ImageSlider images={images}/>
                     </Suspense>
                     <section className="signup-section">
@@ -63,16 +63,16 @@ class MainPaige extends React.Component {
                         </header>
                         <form className='signup-form' onSubmit={this.handleSubmit}>
                             <div>
-                                <input className="signup-input" placeholder='Full name' type="text" name='full_name' id='full_name' aria-label="full name" required />
+                                <input className="signup-input" placeholder='Full name' type="text" name='full_name' id='full_name' aria-label="full name" autoComplete="off" required />
                             </div>
                             <div>
-                                <input className="signup-input" placeholder="Username" type="text" name='user_name' id='user_name' aria-label="username" required />
+                                <input className="signup-input" placeholder="Username" type="text" name='user_name' id='user_name' aria-label="username" autoComplete="off" required />
                             </div>
                             <div>
-                                <input className="signup-input" placeholder="Email" type="text" name='email' id='email' aria-label="email" required />
+                                <input className="signup-input" placeholder="Email" type="text" name='email' id='email' aria-label="email" autoComplete="off" required />
                             </div>
                             <div>
-                                <input className="signup-input" placeholder="Password" type="password" name='password' id='password' aria-label="password" required />
+                                <input className="signup-input" placeholder="Password" type="password" name='password' id='password' aria-label="password" autoComplete="off" required />
                             </div>
                             <button className="signup-button" name="signup-button" type='submit'>Sign Up</button>
                         </form>

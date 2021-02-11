@@ -8,6 +8,26 @@ body {
     width: auto;
 }
 
+button {
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
+}
+
+select:focus {
+    outline: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+textarea:focus {
+    outline: none;
+}
+
 .App {
     height: 100vh;
     display: grid;
@@ -40,6 +60,7 @@ body {
     background-color: black; 
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .App_footer {
@@ -55,9 +76,7 @@ body {
 
 
 svg.svg-inline--fa {
-    bottom: 0;
     height: 4vh;
-    width: auto;
     padding-top: 8px;
 }
 
@@ -75,7 +94,7 @@ svg.add-icon {
     padding: 3px;
 }
 
-header h1 {
+.App-title {
     font-size: 4vh;
 }
 
@@ -97,16 +116,21 @@ header h1 {
     display: none;
     position: absolute;
     background-color: white;
+    margin: 0;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    border-radius: 8px;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
     color: black;
-    padding: 0px 16px 4px 12px;
+    padding: 0px 12px 4px 12px;
     text-decoration: none;
     display: block;
+}
+
+.log-out {
+    border-radius: 8px;
 }
 
 hr {
@@ -116,6 +140,7 @@ hr {
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
     display: block;
+    text-align: center;
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
@@ -123,8 +148,8 @@ hr {
     background-color: black;
 }
 
-.profile-icon {
-    height: 6vw;
+svg.profile-icon {
+    margin-right: 6px;
 }
 
 .log-out {
@@ -152,6 +177,11 @@ img {
 ul {
     list-style: none;
     padding-left: 0%;
+    margin: 0;
+}
+
+button {
+    font-size: 100%;
 }
 
 ::-webkit-scrollbar {
@@ -167,6 +197,28 @@ border-radius: 10px;
 background: white;
 border-radius: 10px;
 }
+
+.loading {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid rgb(78, 78, 78);
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+    margin-top: 20vh;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 
 @media only screen and (min-width: 1025px) {
     svg.add-icon {
@@ -220,5 +272,9 @@ border-radius: 10px;
 
     .dropdown:hover .dropbtn {
         background-color: rgb(240, 214, 214);
+    }
+
+    .loading {
+        border-top: 16px solid rgb(240, 191, 191);
     }
 }

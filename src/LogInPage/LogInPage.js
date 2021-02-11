@@ -32,7 +32,7 @@ export default class LoginPage extends Component {
       <div className="login-center">
         <Section className='LoginPage'>
           <h2>Login</h2>
-          <Suspense fallback={<div>Loading...</div>} >
+          <Suspense fallback={<div></div>} >
           <LoginForm
             onLoginSuccess={this.handleLoginSuccess}
             onRegister={this.handleRegister}

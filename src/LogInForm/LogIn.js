@@ -4,13 +4,13 @@ import ApiContext from '../ApiContext'
 import AuthApiService from '../services/auth-service'
 
 export default class LoginForm extends Component {
-  state = { error: null }
+  state = { error: null, loading: false }
 
   static contextType = ApiContext
 
   handleSubmitJwtAuth = ev => {
     ev.preventDefault()
-    this.setState({ error: null })
+    this.setState({ error: null, loading: true })
     const { user_name, password } = ev.target
 
     AuthApiService.postLogin({
@@ -32,7 +32,7 @@ export default class LoginForm extends Component {
   render() {
     const { error } = this.state
     console.log(this.context)
-    return (
+    return this.state.loading ? (<div className="loading"></div>) : (
       <form
           className='LoginForm'
           onSubmit={this.handleSubmitJwtAuth}

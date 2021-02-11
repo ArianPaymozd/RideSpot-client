@@ -42,48 +42,34 @@ export default class PostList extends React.Component {
     }
 
     render() {
-        const filteredPostList = this.state.posts.map((post, idx) => {
-            const title = post.title.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
+        const postItem = (idx, title, img, post_id, sport, spot_description, difficulty, security_level, spot_address) => {
             return (
                 <li className='post-item' key={idx}>
                     <header className="post-header" >{title}</header>
-                    <img src={post.img} alt={post.title} />
+                    <img src={img} alt={title} />
                     {
-                        this.state.info.includes(post.post_id)
+                        this.state.info.includes(post_id)
                         ? <div className="info">
-                            <p>Sport: {post.sport}</p>
-                            <p>Description: {post.spot_description}</p>
-                            <p>Difficulty: {post.difficulty}</p>
-                            <p>Security: {post.security_level}</p>
-                            <address>Address: {post.spot_address}</address>
-                        </div>
-                        : ''
-                    }
-                    <button className="info-button" name="info-button"onClick={() => this.handleInfo(post.post_id)}>{this.state.info.includes(post.post_id) ? "less..." : "more..."}</button>
-                </li>
-            )
-        })
-        const postList = this.context.posts.map((post, idx) => {
-            const title = post.title.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
-            return (
-                <li className='post-item' key={idx}>
-                    <header className="post-header" >{title}</header>
-                    <img src={post.img} alt={post.title} />
-                    {
-                        this.state.info.includes(post.post_id)
-                        ? <div className="info">
-                            <p>Sport: {post.sport}</p>
-                            <p>Description: {post.spot_description}</p>
-                            <p>Difficulty: {post.difficulty}</p>
-                            <p>Security: {post.security_level}</p>
-                            <address>Address: {post.spot_address}</address>
+                            <p>Sport: {sport}</p>
+                            <p>Description: {spot_description}</p>
+                            <p>Difficulty: {difficulty}</p>
+                            <p>Security: {security_level}</p>
+                            <address>Address: {spot_address}</address>
                         </div>
                         : ''
                     }
                     <br />
-                    <button className="info-button" name="info-button" onClick={() => this.handleInfo(post.post_id)}>{this.state.info.includes(post.post_id) ? "less..." : "more..."}</button>
+                    <button className="info-button" name="info-button" onClick={() => this.handleInfo(post_id)}>{this.state.info.includes(post_id) ? "less..." : "more..."}</button>
                 </li>
             )
+        }
+        const filteredPostList = this.state.posts.map((post, idx) => {
+            const title = post.title.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
+            return postItem(idx, title, post.img, post.post_id, post.sport, post.spot_description, post.difficulty, post.security_level, post.spot_address)
+        })
+        const postList = this.context.posts.map((post, idx) => {
+            const title = post.title.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
+            return postItem(idx, title, post.img, post.post_id, post.sport, post.spot_description, post.difficulty, post.security_level, post.spot_address)
         })
         const list = () => {
             if (!this.state.notFound) {

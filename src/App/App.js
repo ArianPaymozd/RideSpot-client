@@ -6,7 +6,6 @@ import ApiContext from '../ApiContext'
 import config from '../config'
 import './App.css'
 import PrivateRoute from '../Utils/PrivateRoute'
-import ProfilePage from '../ProfilePage/ProfilePage'
 import PublicOnlyRoute from '../Utils/PublicOnlyRoute'
 import TokenService from '../services/token-service'
 import AuthApiService from '../services/auth-service'
@@ -16,6 +15,7 @@ const MainPaige = lazy(() => import('../MainPaige/MainPage'))
 const LoginPage = lazy(() => import('../LogInPage/LogInPage'))
 const PostList = lazy(() => import('../PostList/PostList'))
 const AddPostPage = lazy(() => import('../AddPost/AppPostPage'))
+const ProfilePage = lazy(() => import('../ProfilePage/ProfilePage'))
 
 class App extends React.Component {
     state = {
@@ -103,7 +103,7 @@ class App extends React.Component {
             <ApiContext.Provider value={value}>
                 <div className='App'>
                     <header className='App_header'>
-                        <h1>
+                        <h1 className="App-title">
                             <Link className="list-link" to='/'>RideSpot</Link>
                             {' '}
                             <FontAwesomeIcon className="profile-icon" icon={faSnowboarding} size='xs'/>
@@ -116,14 +116,13 @@ class App extends React.Component {
                                 <Link to={profilePath}>
                                     profile
                                 </Link>
-                                <hr />
                                 {logOut}
                             </div>
                         </div>
                     </header>
                     <div className="main_content">
                         <main className='App_main'>
-                            <Suspense fallback={<div>Loading...</div>}>
+                            <Suspense fallback={<div></div>}>
                                 <Switch>
                                     <Route
                                         exact

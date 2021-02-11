@@ -17,6 +17,6 @@ export default class AddPostPage extends React.Component {
     }
 
     render() {
-        return <Suspense fallback={<div>Loading...</div>} > <AddPost postSuccess={this.handlePostSuccess} /></Suspense>
+        return <Suspense fallback={<div></div>} > <AddPost postSuccess={this.handlePostSuccess} /></Suspense>
     }
 }

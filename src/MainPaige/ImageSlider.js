@@ -20,21 +20,21 @@ const ImageSlider = ({ images }) => { // takes in images as props
       if (index === 0) {
         return (
           <header className="register-title" >
-              <h1>What we do</h1>
+              <h1 className="title-text">What we do</h1>
           </header>
         )
       }
       if (index === 1) {
         return (
           <header className="register-title" >
-              <h1>Share your favorite spots</h1>
+              <h1 className="title-text">Share your favorite spots</h1>
           </header>
         )
       }
       if (index === 2) {
         return (
           <header className="register-title" >
-              <h1>Discover new spots</h1>
+              <h1 className="title-text">Discover new spots</h1>
           </header>
         )
       }

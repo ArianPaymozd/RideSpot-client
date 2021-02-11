@@ -9,7 +9,7 @@
     max-width: 700px;
     display: grid;
     grid-template-columns: 2% 10% 76% 10% 2%;
-    grid-template-rows: .5% 1% 60% 7% 10%;
+    grid-template-rows: .5% 1% 60% 4% 10%;
     grid-template-areas: 
         ". . . . ."
         ". . . . ."
@@ -37,6 +37,12 @@
     background-color: rgb(44, 43, 43);
     padding: 1.6%;
     border-radius: 8px;
+}
+
+.title-text {
+    height: 100%;
+    font-size: 175%;
+    margin: 0;
 }
 
 .interface-img {
@@ -129,10 +135,10 @@ h2 {
     }
 
     .register-title {
-        background-color: rgb(240, 214, 214);
+        background-color: rgb(240, 191, 191);
     }
 
     .caption {
-        background-color: rgb(240, 214, 214);
+        background-color: rgb(240, 191, 191);
     }
 }

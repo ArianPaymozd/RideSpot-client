@@ -1,7 +1,8 @@
 .post-main {
+    height: 140%;
     display: grid;
     grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 10% 80% 10%;
+    grid-template-rows: 10% 120% 10%;
     grid-template-areas: 
         ". . ."
         ". main ."
@@ -12,7 +13,8 @@
     grid-area: main;
     display: flex;
     justify-content: center;
-    height: 60vh;
+    align-items: center;
+    height: 150%;
     width: 85vw;
     border: solid rgba(27, 27, 27, 0.829);
     border-radius: 8px;
@@ -22,8 +24,13 @@
 }
 
 .post-form {
-    height: 38vh;
-    margin-top: 7vh;
+    height: fit-content;
+}
+
+.overview-section-post {
+    display: flex;
+    align-items: center;
+    padding: 1.5% 0% 1.5%;
 }
 
 .address, .title, .picture-link{
@@ -34,7 +41,7 @@
     font-size: 1.5vh;
     width: 20vw;
     height: 4vh;
-    margin: 2px;
+    margin: 2px 2px;
 }
 
 textarea {
@@ -45,7 +52,7 @@ textarea {
     font-size: 1.5vh;
     width: 41vw;
     height: 4vh;
-    margin: 2px;
+    margin: 2%;
 }
 
 .main-info {
@@ -109,7 +116,6 @@ textarea {
 .button-section {
     display: flex;
     justify-content: center;
-    margin-top: 2vh;
 }
 
 .post-button {
@@ -120,9 +126,20 @@ textarea {
 }
 
 @media only screen and (min-width: 1025px) {
+    .post-main {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 7% 86% 7%;
+        grid-template-rows: 10% 80% 10%;
+        grid-template-areas: 
+            ". . ."
+            ". main ."
+            ". . .";
+    }
+
     .post-section {
         width: auto;
-        height: 70vh;
+        height: 100%;
     }
 
     .upload-select {
@@ -162,8 +179,25 @@ textarea {
         background-color: white;
         border-radius: 8px;
     }
+
+    .post-option {
+        color: black;
+    }
+
+    .address, .title, .picture-link{
+        color: black;
+    }
+
+    textarea {
+        color: black;
+    }
     
     .search-button {
+        color: black;
+        border-color: black;
+    }
+
+    .post-button {
         color: black;
         border-color: black;
     }
