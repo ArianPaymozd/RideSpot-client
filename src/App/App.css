@@ -48,7 +48,6 @@ textarea:focus {
 }
 
 .App_header {
-    font-family: Chalkduster, "Segoe UI";
     grid-area: header;
     padding-left: 5px;
     padding-right: 5px;
@@ -60,6 +59,10 @@ textarea:focus {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.App_header h1 {
+    font-family: Chalkduster, "Segoe UI";
 }
 
 .App_footer {
