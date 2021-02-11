@@ -107,6 +107,9 @@
 
 .password-label {
     font-size: 80%;
+    background-color: rgb(44, 43, 43);
+    padding: 1%;
+    border-radius: 8px;
 }
 
 .signup-buttons {
@@ -183,7 +186,8 @@ h2 {
         color: black;
     }
 
-    .password-description {
+    .password-label {
         color: black;
+        background-color: rgb(240, 191, 191);
     }
 }

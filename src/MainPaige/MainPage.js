@@ -80,7 +80,7 @@ class MainPaige extends React.Component {
                             <div>
                                 <input className="signup-input" placeholder="Email: johnsmith@yahoo.com" type="text" name='email' id='email' aria-label="email" autoComplete="off" required />
                             </div>
-                            <div>
+                            <div className="password-register">
                                 <input className="signup-input" placeholder="Password: AAaa123$" type="password" name='password' id='password' aria-label="password" autoComplete="off" onClick={this.handlePasswordDescription} required />
                                 <br />
                                 {this.state.password && <label className="password-label" htmlFor="password">Password must contain one upper case, lower case, number and special character</label>}
