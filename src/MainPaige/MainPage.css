@@ -10,7 +10,7 @@
     padding-bottom: 50px;
     display: grid;
     grid-template-columns: 2% 10% 76% 10% 2%;
-    grid-template-rows: .5% 1% 60% 4% 10%;
+    grid-template-rows: .5% 1% 60% 1% 10%;
     grid-template-areas: 
         ". . . . ."
         ". . . . ."
@@ -20,10 +20,11 @@
 }
 
 .slider {
+    height: 90%;
     grid-area: slider;
     display: grid;
     grid-template-columns: 5% 90% 5%;
-    grid-template-rows: 8% 2% 75% 6% 10%;
+    grid-template-rows: 8% 2% 75% 2% 10%;
     grid-template-areas: 
         "title title title"
         ". . ."
@@ -48,7 +49,7 @@
 
 .interface-img {
     grid-area: img;
-    height: 80%;
+    height: 100%;
     border: none;
 }
 
