@@ -12,7 +12,7 @@ Users can filter the list of spots by location as well as difficulty, sport, and
 
 No account is required to view the current spot list however for users to post and store their own spots they must make an account.
 
-![post list](https://RideSpot-client/github.com/src/MainPaige/images/add-post[443].jpg)
+![post list](https://RideSpot-client.github.com/src/MainPaige/images/add-post[443].jpg)
 
 The front end of the app was created using React, JavaScript, and CSS.
 
