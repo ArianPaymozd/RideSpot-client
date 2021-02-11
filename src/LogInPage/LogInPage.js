@@ -23,7 +23,7 @@ export default class LoginPage extends Component {
 
   handleRegister = () => {
     const { history } = this.props
-    const destination = `/register`
+    const destination = `/`
     history.push(destination)
   }
 

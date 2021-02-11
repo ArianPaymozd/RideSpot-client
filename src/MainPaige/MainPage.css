@@ -7,6 +7,7 @@
     height: 100%;
     width: 99%;
     max-width: 700px;
+    padding-bottom: 50px;
     display: grid;
     grid-template-columns: 2% 10% 76% 10% 2%;
     grid-template-rows: .5% 1% 60% 4% 10%;
@@ -93,19 +94,38 @@
     color: white;
     border-bottom: solid 2px rgb(61, 61, 61);
     background-color: rgba(2, 0, 0, 0);
-    font-size: 2vh;
+    font-size: 100%;
     width: 40vw;
     max-width: 400px;
     height: 4.5vh;
     margin-bottom: 10px;
 }
 
-.signup-button {
+.signup-input::placeholder {
+    font-size: 80%;
+}
+
+.password-label {
+    font-size: 80%;
+}
+
+.signup-buttons {
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3%;
+}
+
+.signup-button, .login-button-register, .post-button-register {
     background-color: rgba(2, 0, 0, 0);
     border: solid 1px white;
     border-radius: 8px;
     color: white;
-    margin: 10px;
+    padding: 10px auto;
+}
+
+.login-button-register, .post-button-register {
+    width: 100%;
 }
 
 h2 {
@@ -119,13 +139,20 @@ h2 {
         line-height: 90%;
     }
 
+    .signup-input::placeholder {
+        font-size: 100%;
+    }
+
     .caption {
         font-size: 1em;
     }
 
-    .signup-button {
-        width: 30%;
+    .signup-button, .login-button-register, .post-button-register  {
         font-size: 120%;
+    }
+
+    .login-button-register, .post-button-register {
+        width: 100%;
     }
 }
 
@@ -151,7 +178,7 @@ h2 {
         color: black;
     }
 
-    .signup-button {
+    .signup-button, .login-button-register, .post-button-register  {
         border-color: black;
         color: black;
     }

@@ -18,7 +18,6 @@ export default class AddPost extends React.Component {
 
     handlePost = (e) => {
         e.preventDefault()
-        console.log(window.localStorage.getItem('user_id'))
         fetch(`${config.API_ENDPOINT}/posts`, {
             method: 'POST',
             headers: {
@@ -42,7 +41,6 @@ export default class AddPost extends React.Component {
             : res.json()
         )
         .then(json => {
-            console.log(json)
             this.context.addPost(json)
             this.props.postSuccess()
         })

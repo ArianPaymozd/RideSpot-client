@@ -21,7 +21,6 @@ export default class PostList extends React.Component {
         const sport = Filters.filterSport(location, e.target['sport-select'].value)
         const difficulty = Filters.filterDifficulty(sport, e.target['difficulty-select'].value)
         const security = Filters.filterSecurity(difficulty, e.target['security-level'].value)
-        console.log(e.target['security-level'].value)
         this.setState({
             posts: security,
             notFound: security.length > 0 ? false : true
@@ -38,7 +37,6 @@ export default class PostList extends React.Component {
                 info: [...this.state.info, postId]
             })
         }
-        console.log(this.state.info)
     }
 
     render() {

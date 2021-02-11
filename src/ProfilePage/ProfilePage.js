@@ -23,7 +23,6 @@ export default class ProfilePage extends React.Component {
         })
         .then(res => res.json())
         .then(res => {
-            console.log(res)
             this.setState({
                 posts: res.reverse()
             })
@@ -52,12 +51,10 @@ export default class ProfilePage extends React.Component {
                 info: [...this.state.info, postId]
             })
         }
-        console.log(this.state.info)
     }
 
     handleState = (postId) => {
         const newPosts = this.state.posts.filter(post => {
-            console.log(post.post_id, postId)
             return post.post_id !== postId
         })
         this.setState({

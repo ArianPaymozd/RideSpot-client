@@ -32,7 +32,9 @@ class App extends React.Component {
             })
         })
         .catch(error => {
-            console.log(error)
+            this.setState({
+                error: error
+            })
         })
         IdleService.setIdleCallback(this.logoutFromIdle)
 
@@ -65,7 +67,6 @@ class App extends React.Component {
 
     handleDeletePost = postId => {
         const newPosts = this.state.posts.filter(post => {
-            console.log(post.post_id, postId)
             return post.post_id !== postId
         })
         this.setState({
@@ -97,14 +98,13 @@ class App extends React.Component {
         }
         const logOut = TokenService.hasAuthToken() ? <button className="log-out" aria-label="log out" onClick={this.handleLogOut}>log-out</button> : ''
         const profilePath = TokenService.hasAuthToken() ? `/${window.localStorage.getItem('user_id')}` : '/login'
-        const upload = TokenService.hasAuthToken() ? <footer className='App_footer'><Link to='/post'><FontAwesomeIcon className="add-icon" icon={faPlus} size='2x'/></Link></footer> : <footer className='App_footer'></footer>
-        console.log(PostList)
+        const upload = TokenService.hasAuthToken() ? <footer className='App_footer'><Link to='/upload'><FontAwesomeIcon className="add-icon" icon={faPlus} size='2x'/></Link></footer> : <footer className='App_footer'></footer>
         return (
             <ApiContext.Provider value={value}>
                 <div className='App'>
                     <header className='App_header'>
                         <h1 className="App-title">
-                            <Link className="list-link" to='/'>RideSpot</Link>
+                            <Link className="list-link" to='/posts'>RideSpot</Link>
                             {' '}
                             <FontAwesomeIcon className="profile-icon" icon={faSnowboarding} size='xs'/>
                         </h1>
@@ -127,18 +127,18 @@ class App extends React.Component {
                                     <Route
                                         exact
                                         path={'/'}
-                                        component={PostList}
+                                        component={MainPaige}
                                     />
                                     <PublicOnlyRoute
                                         path={'/login'}
                                         component={LoginPage}
                                     />
-                                    <PublicOnlyRoute
-                                        path={'/register'}
-                                        component={MainPaige}
+                                    <Route
+                                        path={'/posts'}
+                                        component={PostList}
                                     />
                                     <PrivateRoute
-                                        path={'/post'}
+                                        path={'/upload'}
                                         component={AddPostPage}
                                     />
                                     <PrivateRoute

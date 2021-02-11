@@ -31,7 +31,6 @@ export default class LoginForm extends Component {
 
   render() {
     const { error } = this.state
-    console.log(this.context)
     return this.state.loading && !this.state.error ? (<div className="loading"></div>) :(
       <form
           className='LoginForm'
@@ -63,7 +62,7 @@ export default class LoginForm extends Component {
               </button>
           </div>
           <div className="register-message"><h4 >Don't have an account? Register now!</h4></div>
-              <Link className="register-button" to='/register'>
+              <Link className="register-button" to='/'>
                   <button className="login-buttons" onClick={this.props.onRegsiter} aria-label="register button">
                       Register
                   </button>

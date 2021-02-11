@@ -140,6 +140,7 @@ textarea {
     .post-section {
         width: auto;
         height: 100%;
+        min-height: 500px;
     }
 
     .upload-select {

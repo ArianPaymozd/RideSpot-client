@@ -12,7 +12,6 @@ export default class AddPostPage extends React.Component {
     handlePostSuccess = () => {
         const {history} = this.props
         const destination = `/${window.localStorage.getItem('user_id')}`
-        console.log(destination)
         history.push(destination)
     }
 

@@ -1,4 +1,5 @@
 import React, {Suspense, lazy} from 'react'
+import {Link} from 'react-router-dom'
 import AuthApiService from '../services/auth-service'
 import addPost from './images/add-post[443].jpg'
 import filterList from './images/filter-list[442].jpg'
@@ -71,21 +72,32 @@ class MainPaige extends React.Component {
                         <form className='signup-form' onSubmit={this.handleSubmit}>
                             {this.state.error && <p>{this.state.error}</p>}
                             <div>
-                                <input className="signup-input" placeholder='Full name' type="text" name='full_name' id='full_name' aria-label="full name" autoComplete="off" required />
+                                <input className="signup-input" placeholder='Full name: John Smith' type="text" name='full_name' id='full_name' aria-label="full name" autoComplete="off" required />
                             </div>
                             <div>
-                                <input className="signup-input" placeholder="Username" type="text" name='user_name' id='user_name' aria-label="username" autoComplete="off" required />
+                                <input className="signup-input" placeholder="Username: Jsmithy" type="text" name='user_name' id='user_name' aria-label="username" autoComplete="off" required />
                             </div>
                             <div>
-                                <input className="signup-input" placeholder="Email" type="text" name='email' id='email' aria-label="email" autoComplete="off" required />
+                                <input className="signup-input" placeholder="Email: johnsmith@yahoo.com" type="text" name='email' id='email' aria-label="email" autoComplete="off" required />
                             </div>
                             <div>
-                                <input className="signup-input" placeholder="Password" type="password" name='password' id='password' aria-label="password" autoComplete="off" onClick={this.handlePasswordDescription} required />
+                                <input className="signup-input" placeholder="Password: AAaa123$" type="password" name='password' id='password' aria-label="password" autoComplete="off" onClick={this.handlePasswordDescription} required />
                                 <br />
                                 {this.state.password && <label className="password-label" htmlFor="password">Password must contain one upper case, lower case, number and special character</label>}
                             </div>
-                            
-                            <button className="signup-button" name="signup-button" type='submit'>Sign Up</button>
+                            <div className="signup-buttons">
+                                <button className="signup-button" name="signup-button" type='submit'>Sign Up</button>
+                                <Link className="post-button-register-link" to='/posts'>
+                                    <button className="post-button-register" aria-label="login button">
+                                        View posts
+                                    </button>
+                                </Link>
+                                <Link className="login-button-register-link" to='/login'>
+                                    <button className="login-button-register" onClick={this.props.onRegsiter} aria-label="register button">
+                                        Log in
+                                    </button>
+                                </Link>
+                            </div>
                         </form>
                     </section>
                 </div>
