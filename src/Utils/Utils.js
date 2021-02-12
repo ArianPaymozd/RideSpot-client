@@ -2,12 +2,12 @@ import React from 'react'
 import { format as formatDate } from 'date-fns'
 import './Utils.css'
 
-export function NiceDate({ date, format='Do MMMM YYYY' }) {
+export function NiceDate({ date, format = 'Do MMMM YYYY' }) {
     return formatDate(date, format)
 }
 
 export function Hyph() {
-  return <span className='Hyph'>{' - '}</span>
+    return <span className='Hyph'>{' - '}</span>
 }
 
 export function Button({ className, ...props }) {
@@ -35,12 +35,12 @@ export function Required({ className, ...props }) {
 }
 
 export function Section({ className, list, ...props }) {
-  const classes = [
-    'Section',
-    list && 'Section--list',
-    className,
-  ].filter(Boolean).join(' ')
-  return (
-    <section className={classes} {...props} />
-  )
+    const classes = [
+        'Section',
+        list && 'Section--list',
+        className,
+    ].filter(Boolean).join(' ')
+    return (
+        <section className={classes} {...props} />
+    )
 }

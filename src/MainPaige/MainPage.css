@@ -10,7 +10,7 @@
     padding-bottom: 50px;
     display: grid;
     grid-template-columns: 2% 10% 76% 10% 2%;
-    grid-template-rows: .5% 1% 60% 1% 10%;
+    grid-template-rows: .5% 1% fit-content(60%) 1% 10%;
     grid-template-areas: 
         ". . . . ."
         ". . . . ."
@@ -20,7 +20,7 @@
 }
 
 .slider {
-    height: 90%;
+    height: 100%;
     grid-area: slider;
     display: grid;
     grid-template-columns: 5% 90% 5%;
@@ -30,7 +30,7 @@
         ". . ."
         "buttonLeft img buttonRight"
         ". . ."
-        "caption caption caption";
+        "cap cap cap";
 }
 
 .register-title {
@@ -70,14 +70,14 @@
 }
 
 .caption {
-    grid-area: caption;
+    grid-area: cap;
     font-size: .9em;
     text-align: center;
     height: fit-content;
-    margin: 0;
     padding: 3px;
     background-color: rgb(44, 43, 43);
     border-radius: 8px;
+    overflow: auto;
 }
 
 .banner {
@@ -136,7 +136,21 @@ h2 {
     font-size: x-large;
 }
 
+@media only screen and (max-width: 370px) {
+    .register-title {
+        font-size: 80%;
+    }
+
+    .slider {
+        height: 90%;
+    }
+}
+
 @media only screen and (min-width: 800px) {
+    .slider {
+        height: 100%;
+    }
+
     .signup-input {
         font-size: 100%;
         padding: 3px;

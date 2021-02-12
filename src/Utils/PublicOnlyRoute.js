@@ -4,14 +4,14 @@ import TokenService from '../services/token-service'
 
 export default function PublicOnlyRoute({ component, ...props }) {
     const Component = component
-      return (
+        return (
           <Route
               {...props}
               render={componentProps => (
-                TokenService.hasAuthToken()
-                  ? <Redirect to={'/'} />
-                  : <Component {...componentProps} />
+                  TokenService.hasAuthToken()
+                      ? <Redirect to={'/'} />
+                      : <Component {...componentProps} />
               )}
-        />
-    )
+          />
+        )
 }

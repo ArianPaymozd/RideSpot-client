@@ -1,7 +1,7 @@
-import React, {Suspense, lazy} from 'react'
-import {Route, Link, Switch} from 'react-router-dom'
-import {faSnowboarding, faUserCircle, faPlus} from '@fortawesome/free-solid-svg-icons'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import React, { Suspense, lazy } from 'react'
+import { Route, Link, Switch } from 'react-router-dom'
+import { faSnowboarding, faUserCircle, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ApiContext from '../ApiContext'
 import config from '../config'
 import './App.css'
@@ -25,33 +25,33 @@ class App extends React.Component {
 
     componentDidMount() {
         fetch(`${config.API_ENDPOINT}/posts`)
-        .then(res => res.json())
-        .then(json => {
-            this.setState({
-                posts: json.reverse()
+            .then(res => res.json())
+            .then(json => {
+                this.setState({
+                    posts: json.reverse()
+                })
             })
-        })
-        .catch(error => {
-            this.setState({
-                error: error
+            .catch(error => {
+                this.setState({
+                    error: error
+                })
             })
-        })
         IdleService.setIdleCallback(this.logoutFromIdle)
 
         if (TokenService.hasAuthToken()) {
-        IdleService.regiserIdleTimerResets()
+            IdleService.regiserIdleTimerResets()
 
-        TokenService.queueCallbackBeforeExpiry(() => {
-            AuthApiService.postRefreshToken()
-        })
+            TokenService.queueCallbackBeforeExpiry(() => {
+                AuthApiService.postRefreshToken()
+            })
         }
     }
 
     componentWillUnmount() {
         IdleService.unRegisterIdleResets()
         TokenService.clearCallbackBeforeExpiry()
-      }
-    
+    }
+
     logoutFromIdle = () => {
         TokenService.clearAuthToken()
         TokenService.clearCallbackBeforeExpiry()
@@ -61,7 +61,7 @@ class App extends React.Component {
 
     handleAddPost = post => {
         this.setState({
-            posts: [ post, ...this.state.posts ]
+            posts: [post, ...this.state.posts]
         })
     }
 
@@ -87,7 +87,7 @@ class App extends React.Component {
         })
     }
 
-    
+
     render() {
         const value = {
             posts: this.state.posts,
@@ -98,7 +98,7 @@ class App extends React.Component {
         }
         const logOut = TokenService.hasAuthToken() ? <button className="log-out" aria-label="log out" onClick={this.handleLogOut}>log-out</button> : ''
         const profilePath = TokenService.hasAuthToken() ? `/${window.localStorage.getItem('user_id')}` : '/login'
-        const upload = TokenService.hasAuthToken() ? <footer className='App_footer'><Link to='/upload'><FontAwesomeIcon className="add-icon" icon={faPlus} size='2x'/></Link></footer> : <footer className='App_footer'></footer>
+        const upload = TokenService.hasAuthToken() ? <footer className='App_footer'><Link to='/upload'><FontAwesomeIcon className="add-icon" icon={faPlus} size='2x' /></Link></footer> : <footer className='App_footer'></footer>
         return (
             <ApiContext.Provider value={value}>
                 <div className='App'>
@@ -106,9 +106,9 @@ class App extends React.Component {
                         <h1 className="App-title">
                             <Link className="list-link" to='/posts'>RideSpot</Link>
                             {' '}
-                            <FontAwesomeIcon className="profile-icon" icon={faSnowboarding} size='xs'/>
+                            <FontAwesomeIcon className="profile-icon" icon={faSnowboarding} size='xs' />
                         </h1>
-                        
+
 
                         <div className="dropdown">
                             <button className="dropbtn" aria-label="profile dropdown"><FontAwesomeIcon className='profile-icon' icon={faUserCircle} size='3x' /></button>

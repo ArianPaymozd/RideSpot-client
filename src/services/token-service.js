@@ -31,7 +31,7 @@ const TokenService = {
     },
     queueCallbackBeforeExpiry(callback) {
         const msUntilExpiry = TokenService._getMsUntilExpiry(
-          TokenService.readJwtToken()
+            TokenService.readJwtToken()
         )
         _timeoutId = setTimeout(callback, msUntilExpiry - _TEN_SECONDS_IN_MS)
     },
