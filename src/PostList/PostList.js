@@ -105,7 +105,7 @@ export default class PostList extends React.Component {
                                     <option name="security-high" value="high">High</option>
                                 </select>
                             </div>
-                            <div className="city"><input type="text" className="city-search" name="city" id="city-search" placeholder="Search City" aria-label="city search" /></div>
+                            <div className="city"><input type="text" className="city-search" name="city" id="city-search" placeholder="City" aria-label="city search" /></div>
                             <div className="search"><button type='submit' className='search-button' name='search-button' aria-label="search button" >SEARCH</button></div>
                         </form>
                     </section>
