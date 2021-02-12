@@ -6,40 +6,40 @@ import './Login.css'
 const LoginForm = lazy(() => import('../LogInForm/LogIn'))
 
 export default class LoginPage extends Component {
-  static defaultProps = {
-    location: {},
-    history: {
-      push: () => {},
-    },
-  }
+    static defaultProps = {
+        location: {},
+        history: {
+            push: () => { },
+        },
+    }
 
-  static contextType = ApiContext
+    static contextType = ApiContext
 
-  handleLoginSuccess = () => {
-    const { history } = this.props
-    const destination = `/${window.localStorage.getItem('user_id')}`
-    history.push(destination)
-  }
+    handleLoginSuccess = () => {
+        const { history } = this.props
+        const destination = `/${window.localStorage.getItem('user_id')}`
+        history.push(destination)
+    }
 
-  handleRegister = () => {
-    const { history } = this.props
-    const destination = `/`
-    history.push(destination)
-  }
+    handleRegister = () => {
+        const { history } = this.props
+        const destination = `/`
+        history.push(destination)
+    }
 
-  render() {
-    return (
-      <div className="login-center">
-        <Section className='LoginPage'>
-          <h2>Login</h2>
-          <Suspense fallback={<div></div>} >
-          <LoginForm
-            onLoginSuccess={this.handleLoginSuccess}
-            onRegister={this.handleRegister}
-          />
-          </Suspense>
-        </Section>
-      </div>
-    )
-  }
+    render() {
+        return (
+            <div className="login-center">
+                <Section className='LoginPage'>
+                    <h2>Login</h2>
+                    <Suspense fallback={<div></div>} >
+                        <LoginForm
+                            onLoginSuccess={this.handleLoginSuccess}
+                            onRegister={this.handleRegister}
+                        />
+                    </Suspense>
+                </Section>
+            </div>
+        )
+    }
 }

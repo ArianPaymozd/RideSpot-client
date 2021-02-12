@@ -13,7 +13,7 @@ export default class PostList extends React.Component {
         notFound: false,
         info: [],
     }
-    
+
     handleFilter = (e) => {
         e.preventDefault()
         const originalPosts = this.context.posts
@@ -47,14 +47,14 @@ export default class PostList extends React.Component {
                     <img src={img} alt={title} />
                     {
                         this.state.info.includes(post_id)
-                        ? <div className="info">
-                            <p>Sport: {sport}</p>
-                            <p>Description: {spot_description}</p>
-                            <p>Difficulty: {difficulty}</p>
-                            <p>Security: {security_level}</p>
-                            <address>Address: {spot_address}</address>
-                        </div>
-                        : ''
+                            ? <div className="info">
+                                <p>Sport: {sport}</p>
+                                <p>Description: {spot_description}</p>
+                                <p>Difficulty: {difficulty}</p>
+                                <p>Security: {security_level}</p>
+                                <address>Address: {spot_address}</address>
+                            </div>
+                            : ''
                     }
                     <br />
                     <button className="info-button" name="info-button" onClick={() => this.handleInfo(post_id)}>{this.state.info.includes(post_id) ? "less..." : "more..."}</button>
@@ -80,38 +80,38 @@ export default class PostList extends React.Component {
             <div className="PostList_page">
                 <main className="PostList_main">
                     <section className='filter-form'>
-                    <form className="form-section overview-section" onSubmit={this.handleFilter}>
-                        <div className="filter-grid">
-                        <select className="filter" name="sport-select" aria-label="sport select">
-                        <option name="sport-none" value={null}>Sport</option>
-                        <option name="sport-skateboard" value="skateboard">Skateboard</option>
-                        <option name="sport-bike" value="bike">Bike</option>
-                        <option name="sport-scooter" value="scooter">Scooter</option>
-                        <option name="sport-rollerblades" value="rollerblades">Rollderblades</option>
-                        </select>
-                        <select className="filter" name="difficulty-select" aria-label="difficulty select">
-                        <option name="difficulty-none" value={null}>Difficulty</option>
-                        <option name="difficulty-beginer" value="beginer">beginner</option>
-                        <option name="difficulty-intermediate" value="intermediate">intermediate</option>
-                        <option name="difficulty-hard" value="expert">expert</option>
-                        <option name="difficulty-expert" value="bring a helmet">Bring a helmet</option>
-                        <option name="difficulty-pro" value="the helmet won't help">The helmet won't help</option>
-                        </select>
-                        <select className="filter" name="security-level" aria-label="security select">
-                        <option name="security-none" value={null}>Security</option>
-                        <option name="security-none" value="none">None</option>
-                        <option name="security-low" value="low">Low</option>
-                        <option name="security-medium" value="medium">Medium</option>
-                        <option name="security-high" value="high">High</option>
-                        </select>
-                        </div>
-                        <div className="city"><input type="text" className="city-search" name="city" id="city-search" placeholder="Search City" aria-label="city search" /></div>
-                        <div className="search"><button type='submit' className='search-button' name='search-button' aria-label="search button" >SEARCH</button></div>
-                    </form>
+                        <form className="form-section overview-section" onSubmit={this.handleFilter}>
+                            <div className="filter-grid">
+                                <select className="filter" name="sport-select" aria-label="sport select">
+                                    <option name="sport-none" value={null}>Sport</option>
+                                    <option name="sport-skateboard" value="skateboard">Skateboard</option>
+                                    <option name="sport-bike" value="bike">Bike</option>
+                                    <option name="sport-scooter" value="scooter">Scooter</option>
+                                    <option name="sport-rollerblades" value="rollerblades">Rollderblades</option>
+                                </select>
+                                <select className="filter" name="difficulty-select" aria-label="difficulty select">
+                                    <option name="difficulty-none" value={null}>Difficulty</option>
+                                    <option name="difficulty-beginer" value="beginer">beginner</option>
+                                    <option name="difficulty-intermediate" value="intermediate">intermediate</option>
+                                    <option name="difficulty-hard" value="expert">expert</option>
+                                    <option name="difficulty-expert" value="bring a helmet">Bring a helmet</option>
+                                    <option name="difficulty-pro" value="the helmet won't help">The helmet won't help</option>
+                                </select>
+                                <select className="filter" name="security-level" aria-label="security select">
+                                    <option name="security-none" value={null}>Security</option>
+                                    <option name="security-none" value="none">None</option>
+                                    <option name="security-low" value="low">Low</option>
+                                    <option name="security-medium" value="medium">Medium</option>
+                                    <option name="security-high" value="high">High</option>
+                                </select>
+                            </div>
+                            <div className="city"><input type="text" className="city-search" name="city" id="city-search" placeholder="Search City" aria-label="city search" /></div>
+                            <div className="search"><button type='submit' className='search-button' name='search-button' aria-label="search button" >SEARCH</button></div>
+                        </form>
                     </section>
 
                     {list()}
-                
+
                 </main>
                 <main className="AddPost_main">{TokenService.hasAuthToken() ? <AddPostPage /> : <div className="sign-in"><Link className="sign-in-link" to="/login"><p className="sign-in-text">Please log in or sign up to post!</p></Link></div>}</main>
             </div>

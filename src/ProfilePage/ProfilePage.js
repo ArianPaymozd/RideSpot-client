@@ -6,7 +6,7 @@ import './ProfilePage.css'
 import AddPostPage from '../AddPost/AppPostPage'
 
 export default class ProfilePage extends React.Component {
-    
+
     state = {
         posts: [],
         info: [],
@@ -18,27 +18,27 @@ export default class ProfilePage extends React.Component {
         fetch(`${config.API_ENDPOINT}/posts/${window.localStorage.getItem('user_id')}`, {
             method: 'GET',
             headers: {
-              'authorization': `Bearer ${TokenService.getAuthToken()}`,
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
             },
         })
-        .then(res => res.json())
-        .then(res => {
-            this.setState({
-                posts: res.reverse()
+            .then(res => res.json())
+            .then(res => {
+                this.setState({
+                    posts: res.reverse()
+                })
             })
-        })
         fetch(`${config.API_ENDPOINT}/users/${window.localStorage.getItem('user_id')}`, {
             method: 'GET',
             headers: {
-              'authorization': `Bearer ${TokenService.getAuthToken()}`,
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
             },
         })
-        .then(res => res.json())
-        .then(res => {
-            this.setState({
-                userName: res.user_name
+            .then(res => res.json())
+            .then(res => {
+                this.setState({
+                    userName: res.user_name
+                })
             })
-        })
     }
 
     handleInfo = (postId) => {
@@ -66,7 +66,7 @@ export default class ProfilePage extends React.Component {
         fetch(`${config.API_ENDPOINT}/posts/${postId}`, {
             method: 'DELETE',
             headers: {
-              'authorization': `bearer ${TokenService.getAuthToken()}`,
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
             }
         })
         this.context.deletePost(postId)
@@ -82,14 +82,14 @@ export default class ProfilePage extends React.Component {
                     <img src={post.img} alt={post.title} />
                     {
                         this.state.info.includes(post.post_id)
-                        ? <div className="info">
-                            <p>Sport: {post.sport}</p>
-                            <p>Description: {post.spot_description}</p>
-                            <p>Difficulty: {post.difficulty}</p>
-                            <p>Security: {post.security_level}</p>
-                            <address>Address: {post.spot_address}</address>
-                        </div>
-                        : ''
+                            ? <div className="info">
+                                <p>Sport: {post.sport}</p>
+                                <p>Description: {post.spot_description}</p>
+                                <p>Difficulty: {post.difficulty}</p>
+                                <p>Security: {post.security_level}</p>
+                                <address>Address: {post.spot_address}</address>
+                            </div>
+                            : ''
                     }
                     <button className="info-button" aria-label="info button" onClick={() => this.handleInfo(post.post_id)}>{this.state.info.includes(post.post_id) ? "less..." : "more..."}</button>
                 </li>
