@@ -106,7 +106,7 @@ class App extends React.Component {
                         <h1 className="App-title">
                             <Link className="list-link" to='/posts'>RideSpot</Link>
                             {' '}
-                            <FontAwesomeIcon className="profile-icon" icon={faSnowboarding} size='xs' />
+                            <FontAwesomeIcon className="logo-icon" icon={faSnowboarding} size='xs' />
                         </h1>
 
 

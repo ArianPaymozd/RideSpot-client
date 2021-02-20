@@ -29,7 +29,7 @@
 
 .post-title {
     margin-left: 1vw;
-    font-size: 105%;
+    font-size: 100%;
 }
 
 .delete-button {
@@ -37,7 +37,8 @@
     border: solid 1px white;
     border-radius: 8px;
     color: white;
-    margin-right: 1vw;
+    margin: 2%;
+    height: 80%;
 }
 
 .username-text {
@@ -89,9 +90,11 @@ button.info-button {
     .post-title {
         font-size: 150%;
     }
+}
 
+@media only screen and (max-width: 500px) {
     .delete-button {
-        height: 100%;
+        font-size: 70%;
     }
 }
 

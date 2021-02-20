@@ -108,7 +108,7 @@ svg.add-icon {
 
 .dropdown {
     position: relative;
-    display: inline-block;
+    display: block;
 }
 
 .dropdown-content {
@@ -145,7 +145,11 @@ hr {
 }
 
 svg.profile-icon {
-    margin-right: 6px;
+    width: fit-content;
+}
+
+svg.logo-icon {
+    color: black
 }
 
 .log-out {
@@ -205,19 +209,29 @@ border-radius: 10px;
     margin-top: 20vh;
   }
   
-  @-webkit-keyframes spin {
+@-webkit-keyframes spin {
     0% { -webkit-transform: rotate(0deg); }
     100% { -webkit-transform: rotate(360deg); }
-  }
-  
-  @keyframes spin {
+}
+
+@keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-  }
+}
 
 @media only screen and (min-width: 800px) {
     svg.add-icon {
         display: none;
+    }
+    
+    svg.logo-icon {
+        color: white
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    html {
+        overflow: auto;
     }
 }
 
@@ -261,6 +275,10 @@ border-radius: 10px;
         border: solid black;
     }
 
+    svg.logo-icon {
+        color: rgb(240, 214, 214);
+    }
+
     .dropbtn {
         background-color: rgb(240, 214, 214);
     }
@@ -271,5 +289,11 @@ border-radius: 10px;
 
     .loading {
         border-top: 16px solid rgb(240, 191, 191);
+    }
+
+    @media only screen and (min-width: 800px) { 
+        svg.logo-icon {
+            color: black
+        }
     }
 }

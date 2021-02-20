@@ -1,9 +1,9 @@
 import React, { Suspense, lazy } from 'react'
 import { Link } from 'react-router-dom'
 import AuthApiService from '../services/auth-service'
-import addPost from './images/add-post[443].jpg'
-import filterList from './images/filter-list[442].jpg'
-import postList from './images/post-list[441].jpg'
+import addPost from './images/AddPost.jpg'
+import profilePage from './images/ProfilePage.jpg'
+import postList from './images/PostList.jpg'
 import './MainPage.css'
 
 const ImageSlider = lazy(() => import('./ImageSlider'))
@@ -58,7 +58,7 @@ class MainPaige extends React.Component {
     }
 
     render() {
-        const images = [postList, filterList, addPost]
+        const images = [profilePage, postList, addPost]
         return (
             <div className="center">
                 <div className="register-main" >
